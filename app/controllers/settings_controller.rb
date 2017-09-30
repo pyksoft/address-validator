@@ -13,7 +13,7 @@ class SettingsController < ApplicationController
   def show
     @setting = Setting.find_by store_domain: params[:shop]
     add_cors_headers
-    render json: {setting: setting.as_json(:except => [:id, :created_at, :updated_at, :store_domain])}, status: :ok
+    render json: {setting: @setting.as_json(:except => [:id, :created_at, :updated_at, :store_domain])}, status: :ok
   end
 
   # GET /settings/new
