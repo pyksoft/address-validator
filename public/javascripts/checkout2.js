@@ -161,29 +161,28 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
         };
 
     if (Shopify.Checkout && "contact_information" === Shopify.Checkout.step) {
-        var i = new XMLHttpRequest;
-        e = "https://validate-address.herokuapp.com/",
-        t = Shopify.shop || Shopify.Checkout.apiHost,
-        i.open("GET", e + "/options?shop=" + t, !0),
-        i.send(null),
-        i.onreadystatechange = function() {
-          if (4 === i.readyState) {
-            var e = JSON.parse(i.responseText),
-                o = e.option;
+        var httpreq = new XMLHttpRequest;
+        url = "https://address-validation.herokuapp.com",
+        shop = Shopify.shop || Shopify.Checkout.apiHost,
+        httpreq.open("GET", url + "/settings?shop=" + shop, true),
+        httpreq.send(null),
+        httpreq.onreadystatechange = function() {
+          if (4 === httpreq.readyState) {
+            var resp = JSON.parse(httpreq.responseText),
+                s = resp.setting;
 
-            if (o.pobox_warning ? (address_2 && (address_2.onkeyup = function() {
+            if (s.pobox_warning ? (address_2 && (address_2.onkeyup = function() {
                 return r("");
-            }), o.streetnum_warning ? address_1.onkeyup = function() {
+            }), s.streetnum_warning ? address_1.onkeyup = function() {
                 r(""), a("")
             } : address_1.onkeyup = function() {
                 return r("");
-            }) : o.streetnum_warning && (address_1.onkeyup = function() {
+            }) : s.streetnum_warning && (address_1.onkeyup = function() {
                 return a("");
-            }), o.auto_complete) {
+            }), s.auto_complete) {
                 var t = document.createElement("script");
                 t.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyA7s-Y8HrzH481F0eT2gndRVwvEbVVx7bg&libraries=places&callback=initializeAutocomplete", t.type = "text/javascript", head.appendChild(t)
             }
-
           }
         }
     }
