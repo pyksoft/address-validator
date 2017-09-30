@@ -1,3 +1,4 @@
+
 <%= form_with(model: setting, local: true) do |form| %>
   <% if setting.errors.any? %>
     <div id="error_explanation">
@@ -33,28 +34,36 @@
 
   <div class="field">
     <%= form.label :color_background %>
-    <%= form.text_field :color_background, id: :setting_color_background %>
+    <%= form.text_field :color_background, id: :setting_color_background, class: "jscolor {onFineChange:'update(this, 1)'}" %>
   </div>
 
   <div class="field">
     <%= form.label :color_border %>
-    <%= form.text_field :color_border, id: :setting_color_border %>
+    <%= form.text_field :color_border, id: :setting_color_border, class: "jscolor {onFineChange:'update(this, 1)'}" %>
   </div>
 
   <div class="field">
     <%= form.label :color_text %>
-    <%= form.text_field :color_text, id: :setting_color_text %>
+    <%= form.text_field :color_text, id: :setting_color_text, class: "jscolor {onFineChange:'update(this, 1)'}" %>
   </div>
 
   <div class="field">
     <%= form.label :color_highlight %>
-    <%= form.text_field :color_highlight, id: :setting_color_highlight %>
+    <%= form.text_field :color_highlight, id: :setting_color_highlight, class: "jscolor {onFineChange:'update(this, 1)'}" %>
   </div>
 
   <div class="field">
     <%= form.label :color_hover %>
-    <%= form.text_field :color_hover, id: :setting_color_hover %>
+    <%= form.text_field :color_hover, id: :setting_color_hover, class: "jscolor {onFineChange:'update(this, 1)'}" %>
   </div>
+
+  <p id="rect1" style="border:1px solid gray; width:161px; height:100px;">
+  <script>
+    function update(jscolor, id) {
+        // 'jscolor' instance can be used as a string
+        document.getElementById('rect' + id).style.backgroundColor = '#' + jscolor
+    }
+  </script>
 
   <div class="field">
     <%= form.label :text_apt_suite %>
