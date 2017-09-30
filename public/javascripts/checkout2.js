@@ -162,7 +162,7 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
 
     if (Shopify.Checkout && "contact_information" === Shopify.Checkout.step) {
         var httpreq = new XMLHttpRequest;
-        url = "https://address-validation.herokuapp.com",
+        var url = "https://address-validation.herokuapp.com",
         shop = Shopify.shop || Shopify.Checkout.apiHost,
         httpreq.open("GET", url + "/settings?shop=" + shop, true),
         httpreq.send(null),
