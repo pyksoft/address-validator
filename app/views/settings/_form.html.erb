@@ -76,6 +76,10 @@
           default:              
         }
     }
+
+    $( '#setting_color_background' ).change(function() {
+      $('.validatorBox').css('background-color', '#' + this.value);
+    });
   </script>
 
   <div class="field">
