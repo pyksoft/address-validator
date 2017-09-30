@@ -5,12 +5,20 @@
     .panel {
         flex: 1;
     }
+
+    #settings-container .validatorBox {
+        border: 2px solid;
+        border-radius: 5px;
+        padding: 5px;
+        text-align: center;
+    }
+    
 </style>
 
 <div id="settings-container">
     <div class="panel">
         <h1>Settings</h1>
-        
+
         <p id="notice"><%= notice %></p>
 
         <%= render 'form', setting: @setting %>

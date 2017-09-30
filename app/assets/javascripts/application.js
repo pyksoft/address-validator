@@ -14,3 +14,5 @@
 //= require turbolinks
 //= require_tree .
 //= require jscolor
+//= require jquery
+//= require jquery_ujs

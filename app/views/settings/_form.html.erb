@@ -39,29 +39,42 @@
 
   <div class="field">
     <%= form.label :color_border %>
-    <%= form.text_field :color_border, id: :setting_color_border, class: "jscolor {onFineChange:'update(this, 1)'}" %>
+    <%= form.text_field :color_border, id: :setting_color_border, class: "jscolor {onFineChange:'update(this, 2)'}" %>
   </div>
 
   <div class="field">
     <%= form.label :color_text %>
-    <%= form.text_field :color_text, id: :setting_color_text, class: "jscolor {onFineChange:'update(this, 1)'}" %>
+    <%= form.text_field :color_text, id: :setting_color_text, class: "jscolor {onFineChange:'update(this, 3)'}" %>
   </div>
 
   <div class="field">
     <%= form.label :color_highlight %>
-    <%= form.text_field :color_highlight, id: :setting_color_highlight, class: "jscolor {onFineChange:'update(this, 1)'}" %>
+    <%= form.text_field :color_highlight, id: :setting_color_highlight, class: "jscolor {onFineChange:'update(this, 4)'}" %>
   </div>
 
   <div class="field">
     <%= form.label :color_hover %>
-    <%= form.text_field :color_hover, id: :setting_color_hover, class: "jscolor {onFineChange:'update(this, 1)'}" %>
+    <%= form.text_field :color_hover, id: :setting_color_hover, class: "jscolor {onFineChange:'update(this, 5)'}" %>
   </div>
 
-  <p id="rect1" style="border:1px solid gray; width:161px; height:100px;">
   <script>
     function update(jscolor, id) {
-        // 'jscolor' instance can be used as a string
-        document.getElementById('rect' + id).style.backgroundColor = '#' + jscolor
+        // 'jscolor' instance can be used as a string        
+        switch(id) {
+          case 1:
+            $('.validatorBox').css('background-color', '#' + jscolor);
+            break;
+
+          case 2:
+            $('.validatorBox').css('border-color', '#' + jscolor);
+            break;
+
+          case 3:
+            $('.validatorBox').css('color', '#' + jscolor);
+            break;
+
+          default:              
+        }
     }
   </script>
 
