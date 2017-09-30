@@ -1,7 +1,18 @@
-<h1>Settings</h1>
-<p id="notice"><%= notice %></p>
+<style>
+    #settings-container {
+        display: flex;
+    }
+    .panel {
+        flex: 1;
+    }
+</style>
+
 <div id="settings-container">
     <div class="panel">
+        <h1>Settings</h1>
+        
+        <p id="notice"><%= notice %></p>
+
         <%= render 'form', setting: @setting %>
     </div>
 
