@@ -7,5 +7,6 @@ class HomeController < ShopifyApp::AuthenticatedController
       @setting.store_domain = @shop.domain
       @setting.save
     end
+    redirect_to edit_setting_path(@setting)
   end
 end
