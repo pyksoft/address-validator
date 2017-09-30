@@ -195,7 +195,7 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
       httpreq.send(null),
       httpreq.onreadystatechange = function() {
         if (4 === httpreq.readyState) {
-          var resp = JSON.parse(i.responseText),
+          var resp = JSON.parse(httpreq.responseText),
           s = resp.setting;
           if (s.validate_address) {
               var t = document.createElement("script");
