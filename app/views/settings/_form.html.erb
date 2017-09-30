@@ -1,0 +1,102 @@
+<%= form_with(model: setting, local: true) do |form| %>
+  <% if setting.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(setting.errors.count, "error") %> prohibited this setting from being saved:</h2>
+
+      <ul>
+      <% setting.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :auto_complete %>
+    <%= form.check_box :auto_complete, id: :setting_auto_complete %>
+  </div>
+
+  <div class="field">
+    <%= form.label :validate_address %>
+    <%= form.check_box :validate_address, id: :setting_validate_address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pobox_warning %>
+    <%= form.check_box :pobox_warning, id: :setting_pobox_warning %>
+  </div>
+
+  <div class="field">
+    <%= form.label :streetnum_warning %>
+    <%= form.check_box :streetnum_warning, id: :setting_streetnum_warning %>
+  </div>
+
+  <div class="field">
+    <%= form.label :store_domain %>
+    <%= form.text_field :store_domain, id: :setting_store_domain %>
+  </div>
+
+  <div class="field">
+    <%= form.label :color_background %>
+    <%= form.text_field :color_background, id: :setting_color_background %>
+  </div>
+
+  <div class="field">
+    <%= form.label :color_border %>
+    <%= form.text_field :color_border, id: :setting_color_border %>
+  </div>
+
+  <div class="field">
+    <%= form.label :color_text %>
+    <%= form.text_field :color_text, id: :setting_color_text %>
+  </div>
+
+  <div class="field">
+    <%= form.label :color_highlight %>
+    <%= form.text_field :color_highlight, id: :setting_color_highlight %>
+  </div>
+
+  <div class="field">
+    <%= form.label :color_hover %>
+    <%= form.text_field :color_hover, id: :setting_color_hover %>
+  </div>
+
+  <div class="field">
+    <%= form.label :text_apt_suite %>
+    <%= form.text_field :text_apt_suite, id: :setting_text_apt_suite %>
+  </div>
+
+  <div class="field">
+    <%= form.label :text_inaccurate %>
+    <%= form.text_field :text_inaccurate, id: :setting_text_inaccurate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :text_select_confirm %>
+    <%= form.text_field :text_select_confirm, id: :setting_text_select_confirm %>
+  </div>
+
+  <div class="field">
+    <%= form.label :text_select_suggestion %>
+    <%= form.text_field :text_select_suggestion, id: :setting_text_select_suggestion %>
+  </div>
+
+  <div class="field">
+    <%= form.label :text_suggest1 %>
+    <%= form.text_field :text_suggest1, id: :setting_text_suggest1 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :text_suggest2 %>
+    <%= form.text_field :text_suggest2, id: :setting_text_suggest2 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :text_correct %>
+    <%= form.text_field :text_correct, id: :setting_text_correct %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

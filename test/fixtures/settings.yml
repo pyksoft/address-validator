@@ -1,0 +1,39 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  auto_complete: false
+  validate_address: false
+  pobox_warning: false
+  streetnum_warning: false
+  store_domain: MyString
+  color_background: MyString
+  color_border: MyString
+  color_text: MyString
+  color_highlight: MyString
+  color_hover: MyString
+  text_apt_suite: MyString
+  text_inaccurate: MyString
+  text_select_confirm: MyString
+  text_select_suggestion: MyString
+  text_suggest1: MyString
+  text_suggest2: MyString
+  text_correct: MyString
+
+two:
+  auto_complete: false
+  validate_address: false
+  pobox_warning: false
+  streetnum_warning: false
+  store_domain: MyString
+  color_background: MyString
+  color_border: MyString
+  color_text: MyString
+  color_highlight: MyString
+  color_hover: MyString
+  text_apt_suite: MyString
+  text_inaccurate: MyString
+  text_select_confirm: MyString
+  text_select_suggestion: MyString
+  text_suggest1: MyString
+  text_suggest2: MyString
+  text_correct: MyString
