@@ -1,5 +1,5 @@
 class SettingsController < ApplicationController
-  before_action :set_setting, only: [:show, :edit, :update, :destroy]
+  before_action :set_setting, only: [:edit, :update, :destroy]
 
   # GET /settings
   # GET /settings.json
@@ -9,7 +9,11 @@ class SettingsController < ApplicationController
 
   # GET /settings/1
   # GET /settings/1.json
+
   def show
+    @setting = Setting.find_by store_domain: params[:shop]
+    add_cors_headers
+    render json: {setting: setting.as_json(:except => [:id, :created_at, :updated_at, :store_domain])}, status: :ok
   end
 
   # GET /settings/new
@@ -70,5 +74,12 @@ class SettingsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def setting_params
       params.require(:setting).permit(:auto_complete, :validate_address, :pobox_warning, :streetnum_warning, :store_domain, :color_background, :color_border, :color_text, :color_highlight, :color_hover, :text_apt_suite, :text_inaccurate, :text_select_confirm, :text_select_suggestion, :text_suggest1, :text_suggest2, :text_correct)
+    end
+
+    def add_cors_headers
+      response.headers['Access-Control-Allow-Origin'] = '*'
+      response.headers['Access-Control-Allow-Methods'] = 'POST, PUT, DELETE, GET, OPTIONS'
+      response.headers['Access-Control-Request-Method'] = '*'
+      response.headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
     end
 end
