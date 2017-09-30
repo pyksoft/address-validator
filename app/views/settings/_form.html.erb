@@ -73,6 +73,14 @@
             $('.validatorBox').css('color', '#' + jscolor);
             break;
 
+          case 4:
+            $('span.changed').css('color', '#' + jscolor);
+            break;
+
+          case 5:
+            //$('#suggestedAddress:hover').css('background-color', '#' + jscolor);
+            break;
+
           default:              
         }
     }
@@ -81,7 +89,22 @@
       $('.validatorBox').css('background-color', '#' + $('#setting_color_background').val());
       $('.validatorBox').css('border-color', '#' + $('#setting_color_border').val());
       $('.validatorBox').css('color', '#' + $('#setting_color_text').val());
+
+      $('#suggestedAddress').hover(function(){
+        $(this).css('background-color', '#' + $('#setting_color_hover').val());
+        }, function(){
+        $(this).css('background-color', '#' + $('#setting_color_background').val());
+      });
+
+      $('#originalAddress').hover(function(){
+        $(this).css('background-color', '#' + $('#setting_color_hover').val());
+        }, function(){
+        $(this).css('background-color', '#' + $('#setting_color_background').val());
+      });
     });
+
+    
+
   </script>
 
   <div class="field">
