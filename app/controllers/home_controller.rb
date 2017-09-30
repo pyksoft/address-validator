@@ -1,6 +1,11 @@
 class HomeController < ShopifyApp::AuthenticatedController
   def index
-    @products = ShopifyAPI::Product.find(:all, params: { limit: 10 })
-    @webhooks = ShopifyAPI::Webhook.find(:all)
+    @shop = ShopifyAPI::Shop.current
+    @setting = Setting.find_by store_domain: @shop.domain
+    if @setting.nil?
+      @setting = Setting.new
+      @setting.store_domain = @shop.domain
+      @setting.save
+    end
   end
 end
