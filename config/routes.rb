@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :settings
-  #get '/settings', to: 'settings#show'
+  resources :settings, only: [:update, :edit]
+  get '/settings', to: 'settings#show'
   root :to => 'home#index'
   mount ShopifyApp::Engine, at: '/'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
