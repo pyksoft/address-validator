@@ -77,8 +77,10 @@
         }
     }
 
-    $( '#setting_color_background' ).change(function() {
-      $('.validatorBox').css('background-color', '#' + this.value);
+    $(function() {
+      $('.validatorBox').css('background-color', '#' + $('#setting_color_background').val());
+      $('.validatorBox').css('border-color', '#' + $('#setting_color_border').val());
+      $('.validatorBox').css('color', '#' + $('#setting_color_text').val());
     });
   </script>
 
