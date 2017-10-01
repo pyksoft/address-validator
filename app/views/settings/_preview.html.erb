@@ -3,7 +3,7 @@
         <h1>Preview of prompts</h1>
         <p class="boxName">Prompt displayed when a more accurate address is found</p>
         <div id="suggestedAddressSection" class="validatorBox">
-        <b>Please select shipping address</b><small>To ensure prompt and accurate delivery, we suggest a modified shipping address.</small><br><br>
+        <b><span id="suggested_part1">Please select shipping address</span></b><small><span id="suggested_part2">To ensure prompt and accurate delivery, we suggest a modified shipping address.</span></small><br><br>
         <div id="suggestedAddress">
             <b><i>Suggested address:</i></b><br><span class="changed">400 Howard St</span><br><span class="changed">San Francisco</span><!-- react-text: 367 -->, <!-- /react-text --><span>CA</span><!-- react-text: 369 --> <!-- /react-text --><span>94105</span><span class="changed" >-2618</span>
         </div>
@@ -13,14 +13,14 @@
         </div>
         </div>
         <p class="boxName">Prompt displayed when address is accurate</p>
-        <div id="correctAddress" class="validatorBox"><b>Thanks for specifying an accurate shipping address!</b></div>
+        <div id="correctAddress" class="validatorBox">Thanks for specifying an accurate shipping address</div>
         <p class="boxName">Prompt displayed when address is inaccurate and a better address could not be found</p>
-        <div id="inaccurateAddress" class="validatorBox"><b>Is the shipping address correct?</b></div>
+        <div id="inaccurateAddress" class="validatorBox">Is the shipping address correct?</div>
         <p class="boxName">Prompt displayed when address is missing an apt/suite/unit #</p>
-        <div id="textAptSuiteAddress" class="validatorBox"><b>Did you specify the correct apt/suite/unit?</b></div>
+        <div id="textAptSuiteAddress" class="validatorBox">Did you specify the correct apt/suite/unit?</div>
         <p class="boxName">Prompt displayed when customer selects suggested address</p>
-        <div id="selectSuggestedAddress" class="validatorBox"><b>Your shipping address has been updated!</b></div>
+        <div id="selectSuggestedAddress" class="validatorBox">Your shipping address has been updated!</div>
         <p class="boxName">Prompt displayed when customer selects original address</p>
-        <div id="selectOriginalAddress" class="validatorBox"><b>Thanks for confirming your shipping address!</b></div>
+        <div id="selectOriginalAddress" class="validatorBox">Thanks for confirming your shipping address!</div>
     </div>
 </div>

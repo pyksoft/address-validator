@@ -73,7 +73,7 @@ class SettingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def setting_params
-      params.require(:setting).permit(:auto_complete, :validate_address, :pobox_warning, :streetnum_warning, :store_domain, :color_background, :color_border, :color_text, :color_highlight, :color_hover, :text_apt_suite, :text_inaccurate, :text_select_confirm, :text_select_suggestion, :text_suggest1, :text_suggest2, :text_correct)
+      params.require(:setting).permit(:auto_complete, :validate_address, :pobox_warning, :streetnum_warning, :store_domain, :color_background, :color_border, :color_text, :color_highlight, :color_hover, :text_apt_suite, :text_inaccurate, :text_select_confirm, :text_select_suggestion, :text_suggest1, :text_suggest2, :text_correct, :text_pobox_warning, :text_streetnum_warning)
     end
 
     def add_cors_headers
