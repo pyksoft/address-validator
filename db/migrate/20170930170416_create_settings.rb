@@ -15,9 +15,9 @@ class CreateSettings < ActiveRecord::Migration[5.1]
       t.string :text_inaccurate, default: 'Is the shipping address correct?'
       t.string :text_select_confirm, default: 'Thanks for confirming your shipping address!'
       t.string :text_select_suggestion, default: 'Your shipping address has been updated!'
-      t.string :text_suggest1, 'Please select shipping address'
-      t.string :text_suggest2, 'To ensure prompt and accurate delivery, we suggest a modified shipping address.'
-      t.string :text_correct, 'Thanks for specifying an accurate shipping address!'
+      t.string :text_suggest1, default: 'Please select shipping address'
+      t.string :text_suggest2, default: 'To ensure prompt and accurate delivery, we suggest a modified shipping address.'
+      t.string :text_correct, default: 'Thanks for specifying an accurate shipping address!'
 
       t.timestamps
     end
