@@ -102,31 +102,9 @@
         }, function(){
         $(this).css('background-color', '#' + $('#setting_color_background').val());
       });
-    });
-
-    
+    });    
 
   </script>
-
-  <div class="field">
-    <%= form.label :text_apt_suite %>
-    <%= form.text_field :text_apt_suite, id: :setting_text_apt_suite %>
-  </div>
-
-  <div class="field">
-    <%= form.label :text_inaccurate %>
-    <%= form.text_field :text_inaccurate, id: :setting_text_inaccurate %>
-  </div>
-
-  <div class="field">
-    <%= form.label :text_select_confirm %>
-    <%= form.text_field :text_select_confirm, id: :setting_text_select_confirm %>
-  </div>
-
-  <div class="field">
-    <%= form.label :text_select_suggestion %>
-    <%= form.text_field :text_select_suggestion, id: :setting_text_select_suggestion %>
-  </div>
 
   <div class="field">
     <%= form.label :text_suggest1 %>
@@ -137,10 +115,30 @@
     <%= form.label :text_suggest2 %>
     <%= form.text_field :text_suggest2, id: :setting_text_suggest2 %>
   </div>
-
+  
   <div class="field">
     <%= form.label :text_correct %>
     <%= form.text_field :text_correct, id: :setting_text_correct %>
+  </div>
+
+  <div class="field">
+    <%= form.label :text_inaccurate %>
+    <%= form.text_field :text_inaccurate, id: :setting_text_inaccurate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :text_apt_suite %>
+    <%= form.text_field :text_apt_suite, id: :setting_text_apt_suite %>
+  </div>
+
+  <div class="field">
+    <%= form.label :text_select_suggestion %>
+    <%= form.text_field :text_select_suggestion, id: :setting_text_select_suggestion %>
+  </div>
+
+  <div class="field">
+    <%= form.label :text_select_confirm %>
+    <%= form.text_field :text_select_confirm, id: :setting_text_select_confirm %>
   </div>
 
   <div class="actions">
