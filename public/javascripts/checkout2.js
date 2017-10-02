@@ -175,8 +175,8 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
       httpreq.send(null),
       httpreq.onreadystatechange = function() {
         if (4 === httpreq.readyState) {
-          var resp = JSON.parse(httpreq.responseText),
-              setting = resp.setting;              
+          var resp = JSON.parse(httpreq.responseText);
+          setting = resp.setting;              
           if (setting.pobox_warning ? (address_2 && (address_2.onkeyup = function() {
               return r("");
           }), setting.streetnum_warning ? address_1.onkeyup = function() {
