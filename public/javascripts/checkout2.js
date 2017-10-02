@@ -95,7 +95,10 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
             //console.log("valid address");
             s(), document.getElementById("addressValidatorBox").innerHTML = "<h2>" + textCorrect + "</h2>";
 
-            var e = "#addressValidatorBox{margin-top: 25px;padding: 8px;background: #ddffdd;text-align: center;border-radius: 5px;}",
+            var custom_style = 'background: #' + setting.color_background + '; color: #' + setting.color_text + '; border-color: #' + setting.color_border + ';';
+
+
+            var e = "#addressValidatorBox{margin-top: 25px;padding: 8px;text-align: center;border-radius: 5px; border: 2px solid;" + custom_style + '}',
             t = document.createElement("style");
             t.styleSheet ? t.styleSheet.cssText = e : t.appendChild(document.createTextNode(e)), document.getElementsByTagName("head")[0].appendChild(t)
           } else {
