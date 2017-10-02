@@ -105,7 +105,8 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
             //console.log('Geocode was not successful for the following reason: ' + status);
             s(), document.getElementById("addressValidatorBox").innerHTML = "<h2>" + textInaccurate + "</h2>";
 
-            var e = "#addressValidatorBox{margin-top: 25px;padding: 8px;background: #f8d7da;text-align: center;border-radius: 5px;}",
+            var custom_style = 'background: #' + setting.color_background + '; color: #' + setting.color_text + '; border-color: #' + setting.color_border + ';';
+            var e = "#addressValidatorBox{margin-top: 25px;padding: 8px;text-align: center;border-radius: 5px; border: 2px solid;" + custom_style + '}',
             t = document.createElement("style");
             t.styleSheet ? t.styleSheet.cssText = e : t.appendChild(document.createTextNode(e)), document.getElementsByTagName("head")[0].appendChild(t)
           }
@@ -116,10 +117,10 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
     var e = "https://app.roboturk.co/address_validator/api",
         t = Shopify.shop || Shopify.Checkout.apiHost,
         n = function() {
-            document.getElementById("addressValidatorBox").style.backgroundColor = c.colorBackground, document.getElementById("addressValidatorBox").style.borderColor = c.colorBorder, document.getElementById("addressValidatorBox").style.color = c.colorText, document.getElementById("addressValidatorBox").getElementsByTagName("h2")[0] && (document.getElementById("addressValidatorBox").getElementsByTagName("h2")[0].style.color = c.colorText), [].forEach.call(document.getElementsByClassName("changed"), function(e) {
-                return e.style.color = c.colorHighlight
+            document.getElementById("addressValidatorBox").style.backgroundColor = setting.color_background, document.getElementById("addressValidatorBox").style.borderColor = setting.color_border, document.getElementById("addressValidatorBox").style.color = setting.color_text, document.getElementById("addressValidatorBox").getElementsByTagName("h2")[0] && (document.getElementById("addressValidatorBox").getElementsByTagName("h2")[0].style.color = setting.color_text), [].forEach.call(document.getElementsByClassName("changed"), function(e) {
+                return e.style.color = setting.color_highlight
             });
-            var e = "#suggestedAddress:hover, #originalAddress:hover { background-color: " + c.colorHover + "!important };",
+            var e = "#suggestedAddress:hover, #originalAddress:hover { background-color: " + setting.color_hover + "!important };",
                 t = document.createElement("style");
             t.styleSheet ? t.styleSheet.cssText = e : t.appendChild(document.createTextNode(e)), document.getElementsByTagName("head")[0].appendChild(t)
         },
@@ -133,7 +134,7 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
                 shop: t,
                 token: Shopify.Checkout.token,
                 status: n
-            })), "updated" === n ? (document.getElementById("addressValidatorBox").innerHTML = "<h2>" + c.textSelectSuggestion + "</h2>", document.getElementsByClassName("review-block__content")[0] ? document.getElementsByClassName("review-block__content")[0].innerHTML = s : document.querySelector(".content-box__row.content-box__row--secondary p") ? document.querySelector(".content-box__row.content-box__row--secondary p").innerHTML = s : document.getElementById("shipping-address-recap") && (document.getElementById("shipping-address-recap").innerHTML = s)) : document.getElementById("addressValidatorBox").innerHTML = "<h2>" + c.textSelectConfirm + "</h2>", document.getElementById("addressValidatorBox").getElementsByTagName("h2")[0].style.color = c.colorText
+            })), "updated" === n ? (document.getElementById("addressValidatorBox").innerHTML = "<h2>" + setting.text_select_suggestion + "</h2>", document.getElementsByClassName("review-block__content")[0] ? document.getElementsByClassName("review-block__content")[0].innerHTML = s : document.querySelector(".content-box__row.content-box__row--secondary p") ? document.querySelector(".content-box__row.content-box__row--secondary p").innerHTML = s : document.getElementById("shipping-address-recap") && (document.getElementById("shipping-address-recap").innerHTML = s)) : document.getElementById("addressValidatorBox").innerHTML = "<h2>" + setting.text_select_confirm + "</h2>", document.getElementById("addressValidatorBox").getElementsByTagName("h2")[0].style.color = setting.color_text
         },
         d = function(e, t) {
             var n = document.createElement("div");
