@@ -6,9 +6,9 @@ class CreateSettings < ActiveRecord::Migration[5.1]
       t.boolean :pobox_warning, default: false
       t.boolean :streetnum_warning, default: false
       t.string :store_domain
-      t.string :color_background, default: 'DDFFDD'
-      t.string :color_border, default: 'C4E2C4'
-      t.string :color_text, default: '111111'
+      t.string :color_background, default: 'dff0d8'
+      t.string :color_border, default: 'd0e9c6'
+      t.string :color_text, default: '3c763d'
       t.string :color_highlight, default: '2C5DFF'
       t.string :color_hover, default: 'FFF4BB'
       t.string :text_apt_suite, default: 'Did you specify the correct apt/suite/unit?'

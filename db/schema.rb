@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171001173425) do
+ActiveRecord::Schema.define(version: 20171002181405) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,9 @@ ActiveRecord::Schema.define(version: 20171001173425) do
     t.datetime "updated_at", null: false
     t.text "text_pobox_warning", default: "PO BOX Warning"
     t.text "text_streetnum_warning", default: "Missing street number"
+    t.string "color_background_warning", default: "fcf8e3"
+    t.string "color_border_warning", default: "faf2cc"
+    t.string "color_text_warning", default: "8a6d3b"
   end
 
   create_table "shops", force: :cascade do |t|

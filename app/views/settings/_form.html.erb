@@ -58,7 +58,23 @@
     <%= form.label :color_hover, 'Hover' %>
     <%= form.text_field :color_hover, id: :setting_color_hover, class: "jscolor {onFineChange:'update(this, 5)'}" %>
   </div>
+  
+  <h2>Customize colors</h2>
+  <div class="field">
+    <%= form.label :color_background_warning, 'Backgroud' %>
+    <%= form.text_field :color_background_warning, id: :setting_color_background_warning, class: "jscolor {onFineChange:'update(this, 1)'}" %>
+  </div>
 
+  <div class="field">
+    <%= form.label :color_border_warning, 'Border' %>
+    <%= form.text_field :color_border_warning, id: :setting_color_border_warning, class: "jscolor {onFineChange:'update(this, 2)'}" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :color_text_warning, 'Text' %>
+    <%= form.text_field :color_text_warning, id: :setting_color_text_warning, class: "jscolor {onFineChange:'update(this, 3)'}" %>
+  </div>
+  
   <h2>Customize texts</h2>
   <div class="field">
     <%= form.label :text_suggest1, 'Address suggestion1' %>
@@ -188,4 +204,11 @@
     $('#selectOriginalAddress').text($(this).val())
   });
 
+  $('#setting_text_pobox_warning').on('keyup',function(){
+    $('#poboxWarning').text($(this).val())
+  });
+
+  $('#setting_text_streetnum_warning').on('keyup',function(){
+    $('#streetnumwarning').text($(this).val())
+  });
 </script>
