@@ -91,21 +91,18 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
         };
 
         geocoder.geocode({'address': shipping_address}, function(results, status) {
-          if (status === 'OK') {
-            //console.log("valid address");
+          if (status === 'OK') {            
             s(), document.getElementById("addressValidatorBox").innerHTML = "<h2>" + textCorrect + "</h2>";
 
             var custom_style = 'background: #' + setting.color_background + '; color: #' + setting.color_text + '; border-color: #' + setting.color_border + ';';
 
-
             var e = "#addressValidatorBox{margin-top: 25px;padding: 8px;text-align: center;border-radius: 5px; border: 2px solid;" + custom_style + '}',
             t = document.createElement("style");
             t.styleSheet ? t.styleSheet.cssText = e : t.appendChild(document.createTextNode(e)), document.getElementsByTagName("head")[0].appendChild(t)
-          } else {
-            //console.log('Geocode was not successful for the following reason: ' + status);
+          } else {            
             s(), document.getElementById("addressValidatorBox").innerHTML = "<h2>" + textInaccurate + "</h2>";
 
-            var custom_style = 'background: #' + setting.color_background + '; color: #' + setting.color_text + '; border-color: #' + setting.color_border + ';';
+            var custom_style = 'background: #' + setting.color_background_warning + '; color: #' + setting.color_text_warning + '; border-color: #' + setting.color_border_warning + ';';
             var e = "#addressValidatorBox{margin-top: 25px;padding: 8px;text-align: center;border-radius: 5px; border: 2px solid;" + custom_style + '}',
             t = document.createElement("style");
             t.styleSheet ? t.styleSheet.cssText = e : t.appendChild(document.createTextNode(e)), document.getElementsByTagName("head")[0].appendChild(t)
@@ -136,9 +133,9 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
                 status: n
             })), "updated" === n ? (document.getElementById("addressValidatorBox").innerHTML = "<h2>" + setting.text_select_suggestion + "</h2>", document.getElementsByClassName("review-block__content")[0] ? document.getElementsByClassName("review-block__content")[0].innerHTML = s : document.querySelector(".content-box__row.content-box__row--secondary p") ? document.querySelector(".content-box__row.content-box__row--secondary p").innerHTML = s : document.getElementById("shipping-address-recap") && (document.getElementById("shipping-address-recap").innerHTML = s)) : document.getElementById("addressValidatorBox").innerHTML = "<h2>" + setting.text_select_confirm + "</h2>", document.getElementById("addressValidatorBox").getElementsByTagName("h2")[0].style.color = setting.color_text
         },
-        d = function(e, t) {
+        d = function(e, t) { //styles for warning
             var n = document.createElement("div");
-            return n.setAttribute("id", e), n.style.borderRadius = "5px", n.style.marginBottom = "10px", n.style.padding = "10px", n.style.border = "1px solid #e59400", n.style.color = "#e59400", n.style.backgroundColor = "#fff6e5", n.innerHTML = t, n
+            return n.setAttribute("id", e), n.style.borderRadius = "5px", n.style.marginBottom = "10px", n.style.padding = "10px", n.style.border = "1px solid #" + setting.color_border_warning, n.style.color = "#" + setting.color_text_warning, n.style.backgroundColor = "#" + setting.color_background_warning, n.innerHTML = t, n
         },
         r = function(e) {
             var n = document.getElementById("addressAlertWrapper"),
@@ -152,13 +149,13 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
                     return -1 !== ["letussellit.myshopify.com", "buymobilerapidco.myshopify.com", "buy-mobile-new-zealand.myshopify.com", "from-china-with-love-australia.myshopify.com", "vayahss.myshopify.com", "amaysim.myshopify.com"].indexOf(t) && -1 !== e.replace(/[^\w\s]/gi, "").replace(/ /g, "").toLowerCase().indexOf("parcellocker")
                 },
                 r = s(address_1.value) || s(address_2.value) || o(address_1.value) || o(address_2.value),
-                a = d("addressAlertWrapper", "&#9888; We cannot deliver to a P.O. Box. Please provide a valid street address.");
+                a = d("addressAlertWrapper", "&#9888; " + setting.text_pobox_warning);
             r && !n ? cityParent.insertBefore(a, cityParent.childNodes[0]) : !r && n && document.getElementById("addressAlertWrapper").remove()
         },
         a = function(e) {
             var t = document.getElementById("numAlertWrapper"),
                 n = !/^\d/.test(address_1.value) && address_1.value.length >= 6,
-                s = d("numAlertWrapper", "&#9888; Please specify a street number.");
+                s = d("numAlertWrapper", "&#9888; " + setting.text_streetnum_warning);
 
             if(n && !t) {
                 cityParent.insertBefore(s, cityParent.childNodes[0]);
