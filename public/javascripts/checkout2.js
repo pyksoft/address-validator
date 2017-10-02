@@ -71,14 +71,17 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
         })
     };
 
-    var validateAddress = function() {
+    var validateAddress = function(s) {
         var geocoder = new google.maps.Geocoder();
 
         var shipping_address = document.getElementsByClassName("review-block__content")[0].innerHTML;
         var geocoder = new google.maps.Geocoder();
 
-        var textCorrect = "Thanks for specifying a correct shipping address.";
-        var textInaccurate = "is the shipping address correct?";
+        //var textCorrect = "Thanks for specifying a correct shipping address.";
+        //var textInaccurate = "is the shipping address correct?";
+        var textCorrect = s.text_correct;
+        var textInaccurate = s.text_inaccurate;
+        
         var s = function() {
             var e = document.createElement("div");
             e.setAttribute("id", "addressValidatorBox"), document.getElementsByClassName("main__header")[0].appendChild(e)
@@ -199,7 +202,7 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
           s = resp.setting;
           if (s.validate_address) {
               var t = document.createElement("script");
-              t.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyDUHjLA15WQ7HZ16oYq031AO7Nhy2gXLDg&callback=validateAddress", t.type = "text/javascript", head.appendChild(t);
+              t.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyDUHjLA15WQ7HZ16oYq031AO7Nhy2gXLDg&callback=validateAddress(s)", t.type = "text/javascript", head.appendChild(t);
           }
         }
       }
