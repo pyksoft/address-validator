@@ -154,7 +154,8 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
             r && !n ? cityParent.insertBefore(a, cityParent.childNodes[0]) : !r && n && document.getElementById("addressAlertWrapper").remove();
 
             a = d("addressAlertWrapper", "&#9888; " + setting.text_apt_suite);
-            var aptEmpty = trim(address_2.value) == "";
+
+            var aptEmpty = address_2.value.trim() == "";
             !r && !n && aptEmpty ? cityParent.insertBefore(a, cityParent.childNodes[0]) : !aptEmpty && r && n && document.getElementById ("addressAlertWrapper").remove();            
         },
         a = function(e) {
