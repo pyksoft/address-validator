@@ -12,6 +12,7 @@
     </div>
   <% end %>
 
+  <h2>Features</h2>
   <div class="field">
     <%= form.label :auto_complete %>
     <%= form.check_box :auto_complete, id: :setting_auto_complete %>
@@ -32,73 +33,75 @@
     <%= form.check_box :streetnum_warning, id: :setting_streetnum_warning %>
   </div>
 
+  <h2>Customize colors</h2>
   <div class="field">
-    <%= form.label :color_background %>
+    <%= form.label :color_background, 'Backgroud' %>
     <%= form.text_field :color_background, id: :setting_color_background, class: "jscolor {onFineChange:'update(this, 1)'}" %>
   </div>
 
   <div class="field">
-    <%= form.label :color_border %>
+    <%= form.label :color_border, 'Border' %>
     <%= form.text_field :color_border, id: :setting_color_border, class: "jscolor {onFineChange:'update(this, 2)'}" %>
   </div>
 
   <div class="field">
-    <%= form.label :color_text %>
+    <%= form.label :color_text, 'Text' %>
     <%= form.text_field :color_text, id: :setting_color_text, class: "jscolor {onFineChange:'update(this, 3)'}" %>
   </div>
 
   <div class="field">
-    <%= form.label :color_highlight %>
+    <%= form.label :color_highlight, 'Highlight' %>
     <%= form.text_field :color_highlight, id: :setting_color_highlight, class: "jscolor {onFineChange:'update(this, 4)'}" %>
   </div>
 
   <div class="field">
-    <%= form.label :color_hover %>
+    <%= form.label :color_hover, 'Hover' %>
     <%= form.text_field :color_hover, id: :setting_color_hover, class: "jscolor {onFineChange:'update(this, 5)'}" %>
   </div>
 
+  <h2>Customize texts</h2>
   <div class="field">
-    <%= form.label :text_suggest1 %>
+    <%= form.label :text_suggest1, 'Address suggestion1' %>
     <%= form.text_field :text_suggest1, id: :setting_text_suggest1, class: :custom_message_editbox  %>
   </div>
 
   <div class="field">
-    <%= form.label :text_suggest2 %>
+    <%= form.label :text_suggest2, 'Address suggestion2' %>
     <%= form.text_field :text_suggest2, id: :setting_text_suggest2, class: :custom_message_editbox %>
   </div>
 
   <div class="field">
-    <%= form.label :text_correct %>
+    <%= form.label :text_correct, 'Correct address' %>
     <%= form.text_field :text_correct, id: :setting_text_correct, class: :custom_message_editbox %>
   </div>
 
   <div class="field">
-    <%= form.label :text_inaccurate %>
+    <%= form.label :text_inaccurate, 'Inaccurate address' %>
     <%= form.text_field :text_inaccurate, id: :setting_text_inaccurate, class: :custom_message_editbox %>
   </div>
 
   <div class="field">
-    <%= form.label :text_apt_suite %>
+    <%= form.label :text_apt_suite, 'Inaccurate & missing apt/suite/unit' %>
     <%= form.text_field :text_apt_suite, id: :setting_text_apt_suite, class: :custom_message_editbox %>
   </div>
 
   <div class="field">
-    <%= form.label :text_select_suggestion %>
+    <%= form.label :text_select_suggestion, 'Suggested address selected' %>
     <%= form.text_field :text_select_suggestion, id: :setting_text_select_suggestion, class: :custom_message_editbox %>
   </div>
 
   <div class="field">
-    <%= form.label :text_select_confirm %>
+    <%= form.label :text_select_confirm, 'Original address confirmed' %>
     <%= form.text_field :text_select_confirm, id: :setting_text_select_confirm, class: :custom_message_editbox %>
   </div>
 
   <div class="field">
-    <%= form.label :text_pobox_warning %>
+    <%= form.label :text_pobox_warning, 'PO Box warning on address form' %>
     <%= form.text_field :text_pobox_warning, id: :setting_text_pobox_warning, class: :custom_message_editbox %>
   </div>
 
   <div class="field">
-    <%= form.label :text_streetnum_warning %>
+    <%= form.label :text_streetnum_warning, 'Missing street # warning on address form' %>
     <%= form.text_field :text_streetnum_warning, id: :setting_text_streetnum_warning, class: :custom_message_editbox %>
   </div>
 
