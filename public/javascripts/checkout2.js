@@ -81,9 +81,9 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
         var geocoder = new google.maps.Geocoder();
 
         //var textCorrect = "Thanks for specifying a correct shipping address.";
-        //var textInaccurate = "is the shipping address correct?";
-        var textCorrect = setting.text_correct;
-        var textInaccurate = setting.text_inaccurate;
+        //var textInaccurate = "Is the shipping address correct?";
+        var textCorrect = setting && setting.text_correct ? setting.text_correct : "Thanks for specifying a correct shipping address.";
+        var textInaccurate = setting && setting.text_inaccurate ? setting.text_inaccurate : "Is the shipping address correct?";
 
         var s = function() {
             var e = document.createElement("div");
@@ -204,8 +204,8 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
           var resp = JSON.parse(httpreq.responseText);
           setting = resp.setting;
           if (setting.validate_address) {
-              var t = document.createElement("script");
-              t.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyDUHjLA15WQ7HZ16oYq031AO7Nhy2gXLDg&callback=validateAddress", t.type = "text/javascript", head.appendChild(t);
+            var t = document.createElement("script");
+            t.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyDUHjLA15WQ7HZ16oYq031AO7Nhy2gXLDg&callback=validateAddress", t.type = "text/javascript", head.appendChild(t);
           }
         }
       }
