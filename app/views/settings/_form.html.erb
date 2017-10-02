@@ -59,129 +59,130 @@
 
   <div class="field">
     <%= form.label :text_suggest1 %>
-    <%= form.text_field :text_suggest1, id: :setting_text_suggest1 %>
+    <%= form.text_field :text_suggest1, id: :setting_text_suggest1, class: :custom_message_editbox  %>
   </div>
 
   <div class="field">
     <%= form.label :text_suggest2 %>
-    <%= form.text_field :text_suggest2, id: :setting_text_suggest2 %>
+    <%= form.text_field :text_suggest2, id: :setting_text_suggest2, class: :custom_message_editbox %>
   </div>
-  
+
   <div class="field">
     <%= form.label :text_correct %>
-    <%= form.text_field :text_correct, id: :setting_text_correct %>
+    <%= form.text_field :text_correct, id: :setting_text_correct, class: :custom_message_editbox %>
   </div>
 
   <div class="field">
     <%= form.label :text_inaccurate %>
-    <%= form.text_field :text_inaccurate, id: :setting_text_inaccurate %>
+    <%= form.text_field :text_inaccurate, id: :setting_text_inaccurate, class: :custom_message_editbox %>
   </div>
 
   <div class="field">
     <%= form.label :text_apt_suite %>
-    <%= form.text_field :text_apt_suite, id: :setting_text_apt_suite %>
+    <%= form.text_field :text_apt_suite, id: :setting_text_apt_suite, class: :custom_message_editbox %>
   </div>
 
   <div class="field">
     <%= form.label :text_select_suggestion %>
-    <%= form.text_field :text_select_suggestion, id: :setting_text_select_suggestion %>
+    <%= form.text_field :text_select_suggestion, id: :setting_text_select_suggestion, class: :custom_message_editbox %>
   </div>
 
   <div class="field">
     <%= form.label :text_select_confirm %>
-    <%= form.text_field :text_select_confirm, id: :setting_text_select_confirm %>
+    <%= form.text_field :text_select_confirm, id: :setting_text_select_confirm, class: :custom_message_editbox %>
   </div>
 
   <div class="field">
     <%= form.label :text_pobox_warning %>
-    <%= form.text_field :text_pobox_warning, id: :setting_text_pobox_warning %>
+    <%= form.text_field :text_pobox_warning, id: :setting_text_pobox_warning, class: :custom_message_editbox %>
   </div>
 
   <div class="field">
     <%= form.label :text_streetnum_warning %>
-    <%= form.text_field :text_streetnum_warning, id: :setting_text_streetnum_warning %>
+    <%= form.text_field :text_streetnum_warning, id: :setting_text_streetnum_warning, class: :custom_message_editbox %>
   </div>
 
   <div class="actions">
     <%= form.submit 'Save & Apply' %>
   </div>
 
-  <script>
-    function update(jscolor, id) {
-        // 'jscolor' instance can be used as a string        
-        switch(id) {
-          case 1:
-            $('.validatorBox').css('background-color', '#' + jscolor);
-            break;
-
-          case 2:
-            $('.validatorBox').css('border-color', '#' + jscolor);
-            break;
-
-          case 3:
-            $('.validatorBox').css('color', '#' + jscolor);
-            break;
-
-          case 4:
-            $('span.changed').css('color', '#' + jscolor);
-            break;
-
-          case 5:
-            //$('#suggestedAddress:hover').css('background-color', '#' + jscolor);
-            break;
-
-          default:              
-        }
-    }
-
-    $(function() {
-      $('.validatorBox').css('background-color', '#' + $('#setting_color_background').val());
-      $('.validatorBox').css('border-color', '#' + $('#setting_color_border').val());
-      $('.validatorBox').css('color', '#' + $('#setting_color_text').val());
-      $('span.changed').css('color', '#' + $('#setting_color_highlight').val());
-
-      $('#suggestedAddress').hover(function(){
-        $(this).css('background-color', '#' + $('#setting_color_hover').val());
-        }, function(){
-        $(this).css('background-color', '#' + $('#setting_color_background').val());
-      });
-
-      $('#originalAddress').hover(function(){
-        $(this).css('background-color', '#' + $('#setting_color_hover').val());
-        }, function(){
-        $(this).css('background-color', '#' + $('#setting_color_background').val());
-      });
-
-
-    });  
-
-    $('#setting_text_suggest1').on('keyup',function(){
-      $('#suggested_part1').text($(this).val())
-    });
-
-    $('#setting_text_suggest2').on('keyup',function(){
-      $('#suggested_part2').text($(this).val())
-    });
-
-    $('#setting_text_correct').on('keyup',function(){
-      $('#correctAddress').text($(this).val())
-    });
-
-    $('#setting_text_inaccurate').on('keyup',function(){
-      $('#inaccurateAddress').text($(this).val())
-    });
-
-    $('#setting_text_apt_suite').on('keyup',function(){
-      $('#textAptSuiteAddress').text($(this).val())
-    });
-
-    $('#setting_text_select_suggestion').on('keyup',function(){
-      $('#selectSuggestedAddress').text($(this).val())
-    });
-
-    $('#setting_text_select_confirm').on('keyup',function(){
-      $('#selectOriginalAddress').text($(this).val())
-    });
-
-  </script>
 <% end %>
+
+<script>
+  function update(jscolor, id) {
+    // 'jscolor' instance can be used as a string
+    switch(id) {
+      case 1:
+        $('.validatorBox').css('background-color', '#' + jscolor);
+        break;
+
+      case 2:
+        $('.validatorBox').css('border-color', '#' + jscolor);
+        break;
+
+      case 3:
+        $('.validatorBox').css('color', '#' + jscolor);
+        break;
+
+      case 4:
+        $('span.changed').css('color', '#' + jscolor);
+        break;
+
+      case 5:
+        //$('#suggestedAddress:hover').css('background-color', '#' + jscolor);
+        break;
+
+      default:
+    }
+  }
+
+  $(function() {
+    $('.validatorBox').css('background-color', '#' + $('#setting_color_background').val());
+    $('.validatorBox').css('border-color', '#' + $('#setting_color_border').val());
+    $('.validatorBox').css('color', '#' + $('#setting_color_text').val());
+    $('span.changed').css('color', '#' + $('#setting_color_highlight').val());
+
+    $('#suggestedAddress').hover(function(){
+      $(this).css('background-color', '#' + $('#setting_color_hover').val());
+      }, function(){
+      $(this).css('background-color', '#' + $('#setting_color_background').val());
+    });
+
+    $('#originalAddress').hover(function(){
+      $(this).css('background-color', '#' + $('#setting_color_hover').val());
+      }, function(){
+      $(this).css('background-color', '#' + $('#setting_color_background').val());
+    });
+
+
+  });
+
+  $('#setting_text_suggest1').on('keyup',function(){
+    $('#suggested_part1').text($(this).val())
+  });
+
+  $('#setting_text_suggest2').on('keyup',function(){
+    $('#suggested_part2').text($(this).val())
+  });
+
+  $('#setting_text_correct').on('keyup',function(){
+    $('#correctAddress').text($(this).val())
+  });
+
+  $('#setting_text_inaccurate').on('keyup',function(){
+    $('#inaccurateAddress').text($(this).val())
+  });
+
+  $('#setting_text_apt_suite').on('keyup',function(){
+    $('#textAptSuiteAddress').text($(this).val())
+  });
+
+  $('#setting_text_select_suggestion').on('keyup',function(){
+    $('#selectSuggestedAddress').text($(this).val())
+  });
+
+  $('#setting_text_select_confirm').on('keyup',function(){
+    $('#selectOriginalAddress').text($(this).val())
+  });
+
+</script>

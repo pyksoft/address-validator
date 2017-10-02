@@ -30,12 +30,9 @@ ActiveRecord::Schema.define(version: 20171001173425) do
     t.string "text_inaccurate", default: "Is the shipping address correct?"
     t.string "text_select_confirm", default: "Thanks for confirming your shipping address!"
     t.string "text_select_suggestion", default: "Your shipping address has been updated!"
-    t.string "text_suggest1"
-    t.string "Please select shipping address"
-    t.string "text_suggest2"
-    t.string "To ensure prompt and accurate delivery, we suggest a modified s"
-    t.string "text_correct"
-    t.string "Thanks for specifying an accurate shipping address!"
+    t.string "text_suggest1", default: "Please select shipping address"
+    t.string "text_suggest2", default: "To ensure prompt and accurate delivery, we suggest a modified shipping address."
+    t.string "text_correct", default: "Thanks for specifying an accurate shipping address!"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "text_pobox_warning", default: "PO BOX Warning"
