@@ -1,4 +1,7 @@
 "use strict";
+
+var setting; //setting
+
 var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia", "New Zealand", "Singapore", "South Africa", "United Kingdom", "United States"],
     formatStreetUnit = ["Austria", "Belgium", "Brazil", "Czech Republic", "Denmark", "Estonia", "Finland", "Germany", "Greece", "Italy", "Mexico", "Netherlands", "Norway", "Portugal", "Spain", "Switzerland", "Sweden"],
     head = document.getElementsByTagName("head")[0],
@@ -79,9 +82,9 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
 
         //var textCorrect = "Thanks for specifying a correct shipping address.";
         //var textInaccurate = "is the shipping address correct?";
-        var textCorrect = s.text_correct;
-        var textInaccurate = s.text_inaccurate;
-        
+        var textCorrect = setting.text_correct;
+        var textInaccurate = setting.text_inaccurate;
+
         var s = function() {
             var e = document.createElement("div");
             e.setAttribute("id", "addressValidatorBox"), document.getElementsByClassName("main__header")[0].appendChild(e)
@@ -198,11 +201,11 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
       httpreq.send(null),
       httpreq.onreadystatechange = function() {
         if (4 === httpreq.readyState) {
-          var resp = JSON.parse(httpreq.responseText),
-          s = resp.setting;
-          if (s.validate_address) {
+          var resp = JSON.parse(httpreq.responseText);
+          setting = resp.setting;
+          if (setting.validate_address) {
               var t = document.createElement("script");
-              t.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyDUHjLA15WQ7HZ16oYq031AO7Nhy2gXLDg&callback=validateAddress(s)", t.type = "text/javascript", head.appendChild(t);
+              t.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyDUHjLA15WQ7HZ16oYq031AO7Nhy2gXLDg&callback=validateAddress", t.type = "text/javascript", head.appendChild(t);
           }
         }
       }
