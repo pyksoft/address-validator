@@ -176,17 +176,16 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
       httpreq.onreadystatechange = function() {
         if (4 === httpreq.readyState) {
           var resp = JSON.parse(httpreq.responseText),
-              s = resp.setting;
-
-          if (s.pobox_warning ? (address_2 && (address_2.onkeyup = function() {
+              setting = resp.setting;              
+          if (setting.pobox_warning ? (address_2 && (address_2.onkeyup = function() {
               return r("");
-          }), s.streetnum_warning ? address_1.onkeyup = function() {
+          }), setting.streetnum_warning ? address_1.onkeyup = function() {
               r(""), a("")
           } : address_1.onkeyup = function() {
               return r("");
-          }) : s.streetnum_warning && (address_1.onkeyup = function() {
+          }) : setting.streetnum_warning && (address_1.onkeyup = function() {
               return a("");
-          }), s.auto_complete) {
+          }), setting.auto_complete) {
               var t = document.createElement("script");
               t.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyA7s-Y8HrzH481F0eT2gndRVwvEbVVx7bg&libraries=places&callback=initializeAutocomplete", t.type = "text/javascript", head.appendChild(t)
           }
