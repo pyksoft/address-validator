@@ -5,8 +5,12 @@
   width: 35rem;
 }
 
-.field > label {
-  font-weight: bold;
+.field > input[type='text'] {
+    padding: 5px;
+}
+
+.field.field-inline {
+    display: flex;
 }
 
 #settings-container {

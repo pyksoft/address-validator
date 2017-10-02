@@ -12,29 +12,54 @@
     </div>
   <% end %>
 
-  <h2>Features</h2>
-  <div class="field">
-    <%= form.label :auto_complete %>
+  <h3>Features</h3>
+  <div class="field field-inline">    
     <%= form.check_box :auto_complete, id: :setting_auto_complete %>
+    <%= form.label :auto_complete %>
   </div>
 
-  <div class="field">
-    <%= form.label :validate_address %>
+  <div class="field field-inline">    
     <%= form.check_box :validate_address, id: :setting_validate_address %>
+    <%= form.label :validate_address %>
   </div>
 
-  <div class="field">
-    <%= form.label :pobox_warning %>
+  <div class="field field-inline">    
     <%= form.check_box :pobox_warning, id: :setting_pobox_warning %>
+    <%= form.label :pobox_warning %>
   </div>
 
-  <div class="field">
-    <%= form.label :streetnum_warning %>
+  <div class="field field-inline">    
     <%= form.check_box :streetnum_warning, id: :setting_streetnum_warning %>
+    <%= form.label :streetnum_warning %>
   </div>
 
-  <h2>Customize colors</h2>
+<% if false %>
   <div class="field">
+    <%= form.label :color_highlight, 'Highlight' %>
+    <%= form.text_field :color_highlight, id: :setting_color_highlight, class: "jscolor {onFineChange:'update(this, 4)'}" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :color_hover, 'Hover' %>
+    <%= form.text_field :color_hover, id: :setting_color_hover, class: "jscolor {onFineChange:'update(this, 5)'}" %>
+  </div>
+<% end %>
+
+  <h3>Customize Thanks</h3>  
+
+<% if false %>  
+  <div class="field">
+    <%= form.label :text_suggest1, 'Address suggestion1' %>
+    <%= form.text_field :text_suggest1, id: :setting_text_suggest1, class: :custom_message_editbox  %>
+  </div>
+
+  <div class="field">
+    <%= form.label :text_suggest2, 'Address suggestion2' %>
+    <%= form.text_field :text_suggest2, id: :setting_text_suggest2, class: :custom_message_editbox %>
+  </div>
+<% end %>  
+  
+  <div class="field ">
     <%= form.label :color_background, 'Backgroud' %>
     <%= form.text_field :color_background, id: :setting_color_background, class: "jscolor {onFineChange:'update(this, 1)'}" %>
   </div>
@@ -49,58 +74,39 @@
     <%= form.text_field :color_text, id: :setting_color_text, class: "jscolor {onFineChange:'update(this, 3)'}" %>
   </div>
 
-  <div class="field">
-    <%= form.label :color_highlight, 'Highlight' %>
-    <%= form.text_field :color_highlight, id: :setting_color_highlight, class: "jscolor {onFineChange:'update(this, 4)'}" %>
-  </div>
-
-  <div class="field">
-    <%= form.label :color_hover, 'Hover' %>
-    <%= form.text_field :color_hover, id: :setting_color_hover, class: "jscolor {onFineChange:'update(this, 5)'}" %>
-  </div>
-  
-  <h2>Customize colors</h2>
-  <div class="field">
-    <%= form.label :color_background_warning, 'Backgroud' %>
-    <%= form.text_field :color_background_warning, id: :setting_color_background_warning, class: "jscolor {onFineChange:'update(this, 1)'}" %>
-  </div>
-
-  <div class="field">
-    <%= form.label :color_border_warning, 'Border' %>
-    <%= form.text_field :color_border_warning, id: :setting_color_border_warning, class: "jscolor {onFineChange:'update(this, 2)'}" %>
-  </div>
-
-  <div class="field">
-    <%= form.label :color_text_warning, 'Text' %>
-    <%= form.text_field :color_text_warning, id: :setting_color_text_warning, class: "jscolor {onFineChange:'update(this, 3)'}" %>
-  </div>
-  
-  <h2>Customize texts</h2>
-  <div class="field">
-    <%= form.label :text_suggest1, 'Address suggestion1' %>
-    <%= form.text_field :text_suggest1, id: :setting_text_suggest1, class: :custom_message_editbox  %>
-  </div>
-
-  <div class="field">
-    <%= form.label :text_suggest2, 'Address suggestion2' %>
-    <%= form.text_field :text_suggest2, id: :setting_text_suggest2, class: :custom_message_editbox %>
-  </div>
-
-  <div class="field">
+  <div class="field bold">
     <%= form.label :text_correct, 'Correct address' %>
     <%= form.text_field :text_correct, id: :setting_text_correct, class: :custom_message_editbox %>
   </div>
 
+  <h3>Customize Warnings</h3>  
+
   <div class="field">
+    <%= form.label :color_background_warning, 'Backgroud' %>
+    <%= form.text_field :color_background_warning, id: :setting_color_background_warning, class: "jscolor {onFineChange:'update(this, 6)'}" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :color_border_warning, 'Border' %>
+    <%= form.text_field :color_border_warning, id: :setting_color_border_warning, class: "jscolor {onFineChange:'update(this, 7)'}" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :color_text_warning, 'Text' %>
+    <%= form.text_field :color_text_warning, id: :setting_color_text_warning, class: "jscolor {onFineChange:'update(this, 8)'}" %>
+  </div>
+
+  <div class="field bold">
     <%= form.label :text_inaccurate, 'Inaccurate address' %>
     <%= form.text_field :text_inaccurate, id: :setting_text_inaccurate, class: :custom_message_editbox %>
   </div>
 
-  <div class="field">
+  <div class="field bold">
     <%= form.label :text_apt_suite, 'Inaccurate & missing apt/suite/unit' %>
     <%= form.text_field :text_apt_suite, id: :setting_text_apt_suite, class: :custom_message_editbox %>
   </div>
 
+<% if false %>  
   <div class="field">
     <%= form.label :text_select_suggestion, 'Suggested address selected' %>
     <%= form.text_field :text_select_suggestion, id: :setting_text_select_suggestion, class: :custom_message_editbox %>
@@ -110,13 +116,14 @@
     <%= form.label :text_select_confirm, 'Original address confirmed' %>
     <%= form.text_field :text_select_confirm, id: :setting_text_select_confirm, class: :custom_message_editbox %>
   </div>
+<% end %>
 
-  <div class="field">
+  <div class="field bold">
     <%= form.label :text_pobox_warning, 'PO Box warning on address form' %>
     <%= form.text_field :text_pobox_warning, id: :setting_text_pobox_warning, class: :custom_message_editbox %>
   </div>
 
-  <div class="field">
+  <div class="field bold">
     <%= form.label :text_streetnum_warning, 'Missing street # warning on address form' %>
     <%= form.text_field :text_streetnum_warning, id: :setting_text_streetnum_warning, class: :custom_message_editbox %>
   </div>
@@ -128,6 +135,7 @@
 <% end %>
 
 <script>
+  //Customize colors
   function update(jscolor, id) {
     // 'jscolor' instance can be used as a string
     switch(id) {
@@ -151,10 +159,26 @@
         //$('#suggestedAddress:hover').css('background-color', '#' + jscolor);
         break;
 
+      case 6:
+        $('#poboxWarning').css('background-color', '#' + jscolor);
+        $('#streetnumWarning').css('background-color', '#' + jscolor);
+        break;
+
+      case 7:
+        $('#poboxWarning').css('border-color', '#' + jscolor);
+        $('#streetnumWarning').css('border-color', '#' + jscolor);
+        break;
+
+      case 8:
+        $('#poboxWarning').css('color', '#' + jscolor);
+        $('#streetnumWarning').css('color', '#' + jscolor);
+        break;
+
       default:
     }
   }
 
+  //Loads settings
   $(function() {
     $('.validatorBox').css('background-color', '#' + $('#setting_color_background').val());
     $('.validatorBox').css('border-color', '#' + $('#setting_color_border').val());
@@ -173,9 +197,22 @@
       $(this).css('background-color', '#' + $('#setting_color_background').val());
     });
 
-
+    //Customzie warning colors 
+    $('#poboxWarning').css('background-color', '#' + $('#setting_color_background_warning').val());
+    $('#poboxWarning').css('border-color', '#' + $('#setting_color_border_warning').val());
+    $('#poboxWarning').css('color', '#' + $('#setting_color_text_warning').val());
+    $('#streetnumWarning').css('background-color', '#' + $('#setting_color_background_warning').val());
+    $('#streetnumWarning').css('border-color', '#' + $('#setting_color_border_warning').val());
+    $('#streetnumWarning').css('color', '#' + $('#setting_color_text_warning').val());
+    $('#inaccurateAddress').css('background-color', '#' + $('#setting_color_background_warning').val());
+    $('#inaccurateAddress').css('border-color', '#' + $('#setting_color_border_warning').val());
+    $('#inaccurateAddress').css('color', '#' + $('#setting_color_text_warning').val());
+    $('#aptSuiteAddress').css('background-color', '#' + $('#setting_color_background_warning').val());
+    $('#aptSuiteAddress').css('border-color', '#' + $('#setting_color_border_warning').val());
+    $('#aptSuiteAddress').css('color', '#' + $('#setting_color_text_warning').val());
   });
 
+  // Customize texts
   $('#setting_text_suggest1').on('keyup',function(){
     $('#suggested_part1').text($(this).val())
   });
@@ -193,7 +230,7 @@
   });
 
   $('#setting_text_apt_suite').on('keyup',function(){
-    $('#textAptSuiteAddress').text($(this).val())
+    $('#aptSuiteAddress').text($(this).val())
   });
 
   $('#setting_text_select_suggestion').on('keyup',function(){

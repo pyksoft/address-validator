@@ -21,9 +21,9 @@ ActiveRecord::Schema.define(version: 20171002181405) do
     t.boolean "pobox_warning", default: false
     t.boolean "streetnum_warning", default: false
     t.string "store_domain"
-    t.string "color_background", default: "DDFFDD"
-    t.string "color_border", default: "C4E2C4"
-    t.string "color_text", default: "111111"
+    t.string "color_background", default: "dff0d8"
+    t.string "color_border", default: "d0e9c6"
+    t.string "color_text", default: "3c763d"
     t.string "color_highlight", default: "2C5DFF"
     t.string "color_hover", default: "FFF4BB"
     t.string "text_apt_suite", default: "Did you specify the correct apt/suite/unit?"
@@ -35,8 +35,8 @@ ActiveRecord::Schema.define(version: 20171002181405) do
     t.string "text_correct", default: "Thanks for specifying an accurate shipping address!"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "text_pobox_warning", default: "PO BOX Warning"
-    t.text "text_streetnum_warning", default: "Missing street number"
+    t.text "text_pobox_warning", default: "We cannot deliver to a P.O. Box. Please provide a valid street address."
+    t.text "text_streetnum_warning", default: "Please specify a street number."
     t.string "color_background_warning", default: "fcf8e3"
     t.string "color_border_warning", default: "faf2cc"
     t.string "color_text_warning", default: "8a6d3b"
