@@ -145,12 +145,17 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
                         s = -1 !== t.indexOf("pobox") && t.length < 12;
                     return n || s
                 },
-                o = function(e) {
+                /*o = function(e) {
                     return -1 !== ["letussellit.myshopify.com", "buymobilerapidco.myshopify.com", "buy-mobile-new-zealand.myshopify.com", "from-china-with-love-australia.myshopify.com", "vayahss.myshopify.com", "amaysim.myshopify.com"].indexOf(t) && -1 !== e.replace(/[^\w\s]/gi, "").replace(/ /g, "").toLowerCase().indexOf("parcellocker")
-                },
-                r = s(address_1.value) || s(address_2.value) || o(address_1.value) || o(address_2.value),
+                },*/
+                r = s(address_1.value) || s(address_2.value), // || o(address_1.value) || o(address_2.value),
                 a = d("addressAlertWrapper", "&#9888; " + setting.text_pobox_warning);
-            r && !n ? cityParent.insertBefore(a, cityParent.childNodes[0]) : !r && n && document.getElementById("addressAlertWrapper").remove()
+                        
+            r && !n ? cityParent.insertBefore(a, cityParent.childNodes[0]) : !r && n && document.getElementById("addressAlertWrapper").remove();
+
+            a = d("addressAlertWrapper", "&#9888; " + setting.text_apt_suite);
+            var aptEmpty = trim(address_2.value) == "";
+            !r && !n && aptEmpty ? cityParent.insertBefore(a, cityParent.childNodes[0]) : !aptEmpty && r && n && document.getElementById ("addressAlertWrapper").remove();            
         },
         a = function(e) {
             var t = document.getElementById("numAlertWrapper"),
@@ -192,7 +197,6 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
         }
       }
     }
-
     if (Shopify.Checkout && "shipping_method" === Shopify.Checkout.step) {
       var httpreq = new XMLHttpRequest;
       var url = "https://address-validation.herokuapp.com",
