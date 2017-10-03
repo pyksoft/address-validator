@@ -6,38 +6,16 @@
   </script>
 <% end %>
 
-<style>
-    #settings-container {
-        display: flex;
-    }
-    .panel {
-        flex: 1;
-    }
-
-    #settings-container .validatorBox {
-        border: 2px solid;
-        border-radius: 5px;
-        padding: 5px;
-        text-align: center;
-    }
-
-    #suggestedAddress:hover {
-        background-color: #333;
-    }
-    
-    #originalAddress:hover {
-        background-color: #666;
-    }
-
-</style>
-
 <div id="settings-container">
-    <div class="panel">
+    <div class="col-md-6">
         <h2>Settings</h2>
+
+        <p id="notice"><%= notice %></p>
+
         <%= render 'settings/form', setting: @setting %>
     </div>
 
-    <div class="panel" id="preview">
+    <div class="col-md-6" id="preview">
         <%= render 'settings/preview' %>
     </div>
 </div>
