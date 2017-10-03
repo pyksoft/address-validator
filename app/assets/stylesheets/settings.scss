@@ -4,16 +4,8 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-.custom_message_editbox {
+/*.custom_message_editbox {
   width: 35rem;
-}
-
-.field > input[type='text'] {
-    padding: 5px;
-}
-
-.field.field-inline {
-    display: flex;
 }
 
 #settings-container {
@@ -30,10 +22,6 @@
     text-align: center;
 }
 
-#suggestedAddress:hover {
-    background-color: #333;
-}
-
-#originalAddress:hover {
-    background-color: #666;
-}
+.field > label {
+    font-weight: normal;
+}*/
