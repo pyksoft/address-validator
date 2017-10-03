@@ -1,7 +1,11 @@
 <h2>Settings</h2>
 <div class="col-md-6">        
 
-    <p id="notice"><%= notice %></p>
+    <% if !flash[:notice].nil? %>
+        <div class="alert alert-success alert-custom">
+            <%= notice %>
+        </div>
+    <% end %>
 
     <%= render 'form', setting: @setting %>
 </div>
