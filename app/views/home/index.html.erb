@@ -6,13 +6,19 @@
   </script>
 <% end %>
 
-<h2>Settings</h2>
+<div class="container-fluid custom-container">
+  <div class="row">
+    
+    <h2>Settings</h2>
 
-<div class="col-md-6">        
-    <p id="notice"><%= notice %></p>
-    <%= render 'settings/form', setting: @setting %>
-</div>
+    <div class="col-md-6">        
+        <p id="notice"><%= notice %></p>
+        <%= render 'settings/form', setting: @setting %>
+    </div>
 
-<div class="col-md-6" id="preview">
-    <%= render 'settings/preview' %>
+    <div class="col-md-6" id="preview">
+        <%= render 'settings/preview' %>
+    </div>
+
+  </div>
 </div>
