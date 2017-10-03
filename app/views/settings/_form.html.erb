@@ -1,4 +1,4 @@
-<%= form_with(model: setting, local: true, class: 'form-horizontal') do |form| %>
+<%= form_with(model: setting, local: true) do |form| %>
   <% if setting.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(setting.errors.count, "error") %> prohibited this setting from being saved:</h2>
@@ -46,24 +46,19 @@
 <% end %>
 
   <h3>Customize Thanks</h3>  
-  
-  <div class="form-group">
-    <%= form.label :color_background, 'Backgroud', class: 'control-label col-md-2' %>
-    <div class="col-md-2">
+  <div class="form-inline form-group">
+    <div class="form-group">
+      <%= form.label :color_background, 'Backgroud:', class: 'control-label ' %>
       <%= form.text_field :color_background, id: :setting_color_background, class: "form-control jscolor {onFineChange:'update(this, 1)'}" %>
     </div>
-  </div>
 
-  <div class="form-group">
-    <%= form.label :color_border, 'Border', class: 'control-label col-md-2' %>
-    <div class="col-md-2">
+    <div class="form-group margin-20px">
+      <%= form.label :color_border, 'Border:', class: 'control-label' %>
       <%= form.text_field :color_border, id: :setting_color_border, class: "form-control jscolor {onFineChange:'update(this, 2)'}" %>
     </div>
-  </div>
 
-  <div class="form-group">
-    <%= form.label :color_text, 'Text', class: 'control-label col-md-2' %>
-    <div class="col-md-2">
+    <div class="form-group margin-20px">
+      <%= form.label :color_text, 'Text:', class: 'control-label' %>
       <%= form.text_field :color_text, id: :setting_color_text, class: "form-control jscolor {onFineChange:'update(this, 3)'}" %>
     </div>
   </div>
@@ -74,24 +69,19 @@
   </div>
 
   <h3>Customize Warnings</h3>  
-
-  <div class="form-group">
-    <%= form.label :color_background_warning, 'Backgroud', class: 'control-label col-md-2' %>
-    <div class="col-md-2">
+  <div class="form-inline form-group">
+    <div class="form-group">
+      <%= form.label :color_background_warning, 'Backgroud:', class: 'control-label' %>
       <%= form.text_field :color_background_warning, id: :setting_color_background_warning, class: "form-control jscolor {onFineChange:'update(this, 6)'}" %>
     </div>
-  </div>
 
-  <div class="form-group">
-    <%= form.label :color_border_warning, 'Border', class: 'control-label col-md-2' %>
-    <div class="col-md-2">
+    <div class="form-group margin-20px">
+      <%= form.label :color_border_warning, 'Border:', class: 'control-label' %>
       <%= form.text_field :color_border_warning, id: :setting_color_border_warning, class: "form-control jscolor {onFineChange:'update(this, 7)'}" %>
     </div>
-  </div>
 
-  <div class="form-group">
-    <%= form.label :color_text_warning, 'Text', class: 'control-label col-md-2' %>
-    <div class="col-md-2">
+    <div class="form-group margin-20px">
+      <%= form.label :color_text_warning, 'Text:', class: 'control-label' %>
       <%= form.text_field :color_text_warning, id: :setting_color_text_warning, class: "form-control jscolor {onFineChange:'update(this, 8)'}" %>
     </div>
   </div>
