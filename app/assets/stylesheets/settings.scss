@@ -4,6 +4,17 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.custom-container {
+    margin: 30px
+}
+
+#settings-container .validatorBox {
+    border: 2px solid;
+    border-radius: 5px;
+    padding: 5px;
+    text-align: center;
+}
+
 /*.custom_message_editbox {
   width: 35rem;
 }
@@ -15,12 +26,7 @@
     flex: 1;
 }
 
-#settings-container .validatorBox {
-    border: 2px solid;
-    border-radius: 5px;
-    padding: 5px;
-    text-align: center;
-}
+
 
 .field > label {
     font-weight: normal;
