@@ -1,6 +1,7 @@
 // Place all the styles related to the Settings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
@@ -26,17 +27,17 @@
 .jscolor {
     width: 100px !important;
 }
-/*.custom_message_editbox {
-  width: 35rem;
+
+.custom_checkbox {
+    width: 18px;
+    height: 18px;
 }
 
-#settings-container {
-    display: flex;
-}
-.panel {
-    flex: 1;
+.custom_label {
+    position: absolute;
+    padding: 4px;
 }
 
-.field > label {
-    font-weight: normal;
-}*/
+.form-group.custom {
+    position: relative;
+}

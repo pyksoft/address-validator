@@ -13,24 +13,24 @@
 
   <h3>Features</h3>
   
-  <div class="form-group">    
-    <%= form.check_box :auto_complete, id: :setting_auto_complete %>
-    <%= form.label :auto_complete %>
+  <div class="form-group custom">    
+    <%= form.check_box :auto_complete, id: :setting_auto_complete, class: 'custom_checkbox' %>
+    <%= form.label :auto_complete, class: 'custom_label' %>
   </div>
 
-  <div class="form-group ">    
-    <%= form.check_box :validate_address, id: :setting_validate_address %>
-    <%= form.label :validate_address %>
+  <div class="form-group custom">    
+    <%= form.check_box :validate_address, id: :setting_validate_address, class: 'custom_checkbox' %>
+    <%= form.label :validate_address, class: 'custom_label' %>
   </div>
 
-  <div class="form-group">    
-    <%= form.check_box :pobox_warning, id: :setting_pobox_warning %>
-    <%= form.label :pobox_warning %>
+  <div class="form-group custom">    
+    <%= form.check_box :pobox_warning, id: :setting_pobox_warning, class: 'custom_checkbox' %>
+    <%= form.label :pobox_warning, class: 'custom_label' %>
   </div>
 
-  <div class="form-group">    
-    <%= form.check_box :streetnum_warning, id: :setting_streetnum_warning %>
-    <%= form.label :streetnum_warning %>
+  <div class="form-group custom">    
+    <%= form.check_box :streetnum_warning, id: :setting_streetnum_warning, class: 'custom_checkbox' %>
+    <%= form.label :streetnum_warning, class: 'custom_label' %>
   </div>
 
 <% if false %>
