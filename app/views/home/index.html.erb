@@ -11,14 +11,8 @@
     <div class="logo-containter">
       <%= image_tag "Simpl_Verify.png", alt: 'Logo' %>
     </div>
-
-    <div class="col-md-6">        
-        <%= render 'settings/form', setting: @setting %>
-    </div>
-
-    <div class="col-md-6" id="preview">
-        <%= render 'settings/preview' %>
-    </div>
-
+  
+    <%= render 'settings/form', setting: @setting %>
+    
   </div>
 </div>

@@ -76,7 +76,7 @@
         </div>
       </div>
       <br>
-      
+
       <div class="form-group">
         <%= form.label :text_inaccurate, 'Inaccurate address' %>
         <%= form.text_field :text_inaccurate, id: :setting_text_inaccurate, class: 'form-control' %>
@@ -114,8 +114,29 @@
         </div>
       </div>      
     </div>    
+
+    <!-- preview -->
     <div class="col-md-6">
-      <%= render 'preview' %>
+      <div id="preview">
+          <div class="text-center">
+              <h3>Preview of prompts</h3>
+
+              <p class="boxName">Prompt displayed when address is accurate</p>
+              <div id="correctAddress" class="validatorBox">Thanks for specifying an accurate shipping address</div> <br/>
+
+              <p class="boxName">Prompt displayed when address is inaccurate and a better address could not be found</p>
+              <div id="inaccurateAddress" class="validatorBox">Is the shipping address correct?</div> <br/>
+
+              <p class="boxName">Prompt displayed when address is missing an apt/suite/unit #</p>
+              <div id="aptSuiteAddress" class="validatorBox">Did you specify the correct apt/suite/unit?</div>  <br/>       
+
+              <p class="boxName">Prompt displayed when customer specifies a PO Box address</p>
+              <div id="poboxWarning" class="validatorBox">We cannot deliver to a P.O. Box. Please provide a valid street address.</div> <br/>
+
+              <p class="boxName">Prompt displayed when customer specifies an address without a street number</p>
+              <div id="streetnumWarning" class="validatorBox">Please specify a street number.</div> <br/>
+          </div>
+      </div>
     </div>
   </div>
   
