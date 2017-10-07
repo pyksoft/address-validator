@@ -10,114 +10,115 @@
       </ul>
     </div>
   <% end %>
-
-  <h3>Features</h3>
   
-  <div class="form-group custom">    
-    <%= form.check_box :auto_complete, id: :setting_auto_complete, class: 'custom_checkbox' %>
-    <%= form.label :auto_complete, class: 'custom_label' %>
-  </div>
+  <div class="row features-container">
+    <div class="col-md-6">
+      <h4>  
+      <div class="form-group">    
+        <%= form.check_box :auto_complete, id: :setting_auto_complete, class: 'custom_checkbox' %>
+        <%= form.label :auto_complete, 'Validate Address', class: 'custom_label' %>
+      </div>
+      </h4>      
+      <p>Enable this feature to validate shipping address during the second step of the checkout process rather than on the order status page.</p> <br>
 
-  <div class="form-group custom">    
-    <%= form.check_box :validate_address, id: :setting_validate_address, class: 'custom_checkbox' %>
-    <%= form.label :validate_address, class: 'custom_label' %>
-  </div>
-
-  <div class="form-group custom">    
-    <%= form.check_box :pobox_warning, id: :setting_pobox_warning, class: 'custom_checkbox' %>
-    <%= form.label :pobox_warning, class: 'custom_label' %>
-  </div>
-
-  <div class="form-group custom">    
-    <%= form.check_box :streetnum_warning, id: :setting_streetnum_warning, class: 'custom_checkbox' %>
-    <%= form.label :streetnum_warning, class: 'custom_label' %>
-  </div>
-
-<% if false %>
-  <div class="form-group">
-    <%= form.label :color_highlight, 'Highlight' %>
-    <%= form.text_field :color_highlight, id: :setting_color_highlight, class: "jscolor {onFineChange:'update(this, 4)'}" %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :color_hover, 'Hover' %>
-    <%= form.text_field :color_hover, id: :setting_color_hover, class: "jscolor {onFineChange:'update(this, 5)'}" %>
-  </div>
-<% end %>
-
-  <h3>Customize Thanks</h3>  
-  <div class="form-inline form-group">
-    <div class="form-group">
-      <%= form.label :color_background, 'Backgroud:', class: 'control-label ' %>
-      <%= form.text_field :color_background, id: :setting_color_background, class: "form-control jscolor {onFineChange:'update(this, 1)'}" %>
+      <h4>
+      <div class="form-group">    
+        <%= form.check_box :validate_address, id: :setting_validate_address, class: 'custom_checkbox' %>
+        <%= form.label :validate_address, 'Google Auto Complete', class: 'custom_label' %>
+      </div>
+      </h4>
+      <p>Enable this feature to display warning whenever customer specifies an address without a street number.</p>       
     </div>
 
-    <div class="form-group margin-20px">
-      <%= form.label :color_border, 'Border:', class: 'control-label' %>
-      <%= form.text_field :color_border, id: :setting_color_border, class: "form-control jscolor {onFineChange:'update(this, 2)'}" %>
-    </div>
+    <div class="col-md-6">
+      <h4>
+      <div class="form-group">    
+        <%= form.check_box :pobox_warning, id: :setting_pobox_warning, class: 'custom_checkbox' %>
+        <%= form.label :pobox_warning, 'Street Number Warning', class: 'custom_label' %>
+      </div>
+      </h4>  
+      <p>Enable this feature to offer address suggestions as the customer starts typing - this can help speed up the checkout process.</p> <br>
 
-    <div class="form-group margin-20px">
-      <%= form.label :color_text, 'Text:', class: 'control-label' %>
-      <%= form.text_field :color_text, id: :setting_color_text, class: "form-control jscolor {onFineChange:'update(this, 3)'}" %>
+      <h4>
+      <div class="form-group">    
+        <%= form.check_box :streetnum_warning, id: :setting_streetnum_warning, class: 'custom_checkbox' %>
+        <%= form.label :streetnum_warning, 'PO BOX Warning', class: 'custom_label' %>
+      </div>
+      </h4>
+      <p>Enable this feature to display warning whenever customer specifies a PO Box address - UPS cannot deliver to PO Box addresses.</p>  
     </div>
   </div>
 
-  <div class="form-group">
-    <%= form.label :text_correct, 'Correct address' %>
-    <%= form.text_field :text_correct, id: :setting_text_correct, class: 'form-control' %>
-  </div>
+  <h3>CUSTOMIZE COLORS & MESSAGES</h3>  
+  
+  <div class="row">
+    <div class="col-md-6">
 
-  <h3>Customize Warnings</h3>  
-  <div class="form-inline form-group">
-    <div class="form-group">
-      <%= form.label :color_background_warning, 'Backgroud:', class: 'control-label' %>
-      <%= form.text_field :color_background_warning, id: :setting_color_background_warning, class: "form-control jscolor {onFineChange:'update(this, 6)'}" %>
+      <div class="form-group">
+        <%= form.label :text_correct, 'Correct address' %>
+        <%= form.text_field :text_correct, id: :setting_text_correct, class: 'form-control' %>
+      </div>
+
+      <div class="form-inline form-group">
+        <div class="form-group">
+          <%= form.label :color_background, 'Backgroud:', class: 'control-label ' %>
+          <%= form.text_field :color_background, id: :setting_color_background, class: "form-control jscolor {onFineChange:'update(this, 1)'}" %>
+        </div>
+
+        <div class="form-group margin-20px">
+          <%= form.label :color_border, 'Border:', class: 'control-label' %>
+          <%= form.text_field :color_border, id: :setting_color_border, class: "form-control jscolor {onFineChange:'update(this, 2)'}" %>
+        </div>
+
+        <div class="form-group margin-20px">
+          <%= form.label :color_text, 'Text:', class: 'control-label' %>
+          <%= form.text_field :color_text, id: :setting_color_text, class: "form-control jscolor {onFineChange:'update(this, 3)'}" %>
+        </div>
+      </div>
+      <br>
+      
+      <div class="form-group">
+        <%= form.label :text_inaccurate, 'Inaccurate address' %>
+        <%= form.text_field :text_inaccurate, id: :setting_text_inaccurate, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :text_apt_suite, 'Inaccurate & missing apt/suite/unit' %>
+        <%= form.text_field :text_apt_suite, id: :setting_text_apt_suite, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :text_pobox_warning, 'PO Box warning on address form' %>
+        <%= form.text_field :text_pobox_warning, id: :setting_text_pobox_warning, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :text_streetnum_warning, 'Missing street # warning on address form' %>
+        <%= form.text_field :text_streetnum_warning, id: :setting_text_streetnum_warning, class: 'form-control' %>
+      </div>
+            
+      <div class="form-inline form-group">
+        <div class="form-group">
+          <%= form.label :color_background_warning, 'Backgroud:', class: 'control-label' %>
+          <%= form.text_field :color_background_warning, id: :setting_color_background_warning, class: "form-control jscolor {onFineChange:'update(this, 6)'}" %>
+        </div>
+
+        <div class="form-group margin-20px">
+          <%= form.label :color_border_warning, 'Border:', class: 'control-label' %>
+          <%= form.text_field :color_border_warning, id: :setting_color_border_warning, class: "form-control jscolor {onFineChange:'update(this, 7)'}" %>
+        </div>
+
+        <div class="form-group margin-20px">
+          <%= form.label :color_text_warning, 'Text:', class: 'control-label' %>
+          <%= form.text_field :color_text_warning, id: :setting_color_text_warning, class: "form-control jscolor {onFineChange:'update(this, 8)'}" %>
+        </div>
+      </div>      
+    </div>    
+    <div class="col-md-6">
+      <%= render 'preview' %>
     </div>
-
-    <div class="form-group margin-20px">
-      <%= form.label :color_border_warning, 'Border:', class: 'control-label' %>
-      <%= form.text_field :color_border_warning, id: :setting_color_border_warning, class: "form-control jscolor {onFineChange:'update(this, 7)'}" %>
-    </div>
-
-    <div class="form-group margin-20px">
-      <%= form.label :color_text_warning, 'Text:', class: 'control-label' %>
-      <%= form.text_field :color_text_warning, id: :setting_color_text_warning, class: "form-control jscolor {onFineChange:'update(this, 8)'}" %>
-    </div>
   </div>
-
-  <div class="form-group">
-    <%= form.label :text_inaccurate, 'Inaccurate address' %>
-    <%= form.text_field :text_inaccurate, id: :setting_text_inaccurate, class: 'form-control' %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :text_apt_suite, 'Inaccurate & missing apt/suite/unit' %>
-    <%= form.text_field :text_apt_suite, id: :setting_text_apt_suite, class: 'form-control' %>
-  </div>
-
-<% if false %>  
-  <div class="form-group">
-    <%= form.label :text_select_suggestion, 'Suggested address selected' %>
-    <%= form.text_field :text_select_suggestion, id: :setting_text_select_suggestion, class: 'form-control' %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :text_select_confirm, 'Original address confirmed' %>
-    <%= form.text_field :text_select_confirm, id: :setting_text_select_confirm, class: 'form-control' %>
-  </div>
-<% end %>
-
-  <div class="form-group">
-    <%= form.label :text_pobox_warning, 'PO Box warning on address form' %>
-    <%= form.text_field :text_pobox_warning, id: :setting_text_pobox_warning, class: 'form-control' %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :text_streetnum_warning, 'Missing street # warning on address form' %>
-    <%= form.text_field :text_streetnum_warning, id: :setting_text_streetnum_warning, class: 'form-control' %>
-  </div>
-
+  
   <div class="actions">
     <%= form.submit 'Save & Apply', class: 'btn btn-primary' %>
   </div>

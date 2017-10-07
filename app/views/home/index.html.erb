@@ -8,8 +8,9 @@
 
 <div class="container-fluid custom-container">
   <div class="row">
-    
-    <h2>Settings</h2>
+    <div class="logo-containter">
+      <%= image_tag "Simpl_Verify.png", alt: 'Logo' %>
+    </div>
 
     <div class="col-md-6">        
         <%= render 'settings/form', setting: @setting %>

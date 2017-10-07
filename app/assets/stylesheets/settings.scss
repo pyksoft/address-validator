@@ -13,6 +13,15 @@
     padding: 10px;
 }
 
+.logo-containter {
+    text-align: center;
+    padding: 15px;
+}
+
+.logo-containter > img {
+    width: 130px;
+}
+
 #preview .validatorBox {
     border: 2px solid;
     border-radius: 5px;
@@ -26,4 +35,8 @@
 
 .jscolor {
     width: 100px !important;
+}
+
+.features-container label{
+    font-weight: normal;
 }
