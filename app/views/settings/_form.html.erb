@@ -13,39 +13,40 @@
   
   <div class="row features-container">
     <div class="col-md-6">
-      <h4>  
-      <div class="form-group">    
-        <%= form.check_box :auto_complete, id: :setting_auto_complete, class: 'custom_checkbox' %>
-        <%= form.label :auto_complete, 'Validate Address', class: 'custom_label' %>
+      
+      <div class="form-group">
+        <h4>  
+          <%= form.check_box :auto_complete, id: :setting_auto_complete, class: 'custom_checkbox' %>
+          <%= form.label :auto_complete, 'Validate Address', class: 'custom_label' %> 
+        </h4>      
+        <p>Enable this feature to validate shipping address during the second step of the checkout process rather than on the order status page.</p>
       </div>
-      </h4>      
-      <p>Enable this feature to validate shipping address during the second step of the checkout process rather than on the order status page.</p> <br>
-
-      <h4>
-      <div class="form-group">    
-        <%= form.check_box :validate_address, id: :setting_validate_address, class: 'custom_checkbox' %>
-        <%= form.label :validate_address, 'Google Auto Complete', class: 'custom_label' %>
-      </div>
-      </h4>
-      <p>Enable this feature to display warning whenever customer specifies an address without a street number.</p>       
+          
+      <div class="form-group">
+        <h4>
+          <%= form.check_box :validate_address, id: :setting_validate_address, class: 'custom_checkbox' %>
+          <%= form.label :validate_address, 'Google Auto Complete', class: 'custom_label' %>
+        </h4>
+        <p>Enable this feature to display warning whenever customer specifies an address without a street number.</p>       
+      </div>      
     </div>
 
     <div class="col-md-6">
-      <h4>
       <div class="form-group">    
+      <h4>
         <%= form.check_box :pobox_warning, id: :setting_pobox_warning, class: 'custom_checkbox' %>
         <%= form.label :pobox_warning, 'Street Number Warning', class: 'custom_label' %>
-      </div>
       </h4>  
-      <p>Enable this feature to offer address suggestions as the customer starts typing - this can help speed up the checkout process.</p> <br>
-
-      <h4>
+      <p>Enable this feature to offer address suggestions as the customer starts typing - this can help speed up the checkout process.</p>
+      </div>      
+          
       <div class="form-group">    
+      <h4>
         <%= form.check_box :streetnum_warning, id: :setting_streetnum_warning, class: 'custom_checkbox' %>
         <%= form.label :streetnum_warning, 'PO BOX Warning', class: 'custom_label' %>
-      </div>
       </h4>
-      <p>Enable this feature to display warning whenever customer specifies a PO Box address - UPS cannot deliver to PO Box addresses.</p>  
+      <p>Enable this feature to display warning whenever customer specifies a PO Box address - UPS cannot deliver to PO Box addresses.</p>
+      </div>              
     </div>
   </div>
 
