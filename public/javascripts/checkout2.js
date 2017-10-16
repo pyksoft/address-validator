@@ -91,15 +91,18 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
         };
 
         geocoder.geocode({'address': shipping_address}, function(results, status) {
-          if (status === 'OK') {            
+          if (status === 'OK') {
             s(), document.getElementById("addressValidatorBox").innerHTML = "<h2>" + textCorrect + "</h2>";
 
             var custom_style = 'background: #' + setting.color_background + '; color: #' + setting.color_text + '; border-color: #' + setting.color_border + ';';
 
             var e = "#addressValidatorBox{margin-top: 25px;padding: 8px;text-align: center;border-radius: 5px; border: 2px solid;" + custom_style + '}',
             t = document.createElement("style");
-            t.styleSheet ? t.styleSheet.cssText = e : t.appendChild(document.createTextNode(e)), document.getElementsByTagName("head")[0].appendChild(t)
-          } else {            
+            t.styleSheet ? t.styleSheet.cssText = e : t.appendChild(document.createTextNode(e)), document.getElementsByTagName("head")[0].appendChild(t);
+
+            console.log(shipping_address);
+
+          } else {
             s(), document.getElementById("addressValidatorBox").innerHTML = "<h2>" + textInaccurate + "</h2>";
 
             var custom_style = 'background: #' + setting.color_background_warning + '; color: #' + setting.color_text_warning + '; border-color: #' + setting.color_border_warning + ';';
@@ -150,13 +153,13 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
                 },*/
                 r = s(address_1.value) || s(address_2.value), // || o(address_1.value) || o(address_2.value),
                 a = d("addressAlertWrapper", "&#9888; " + setting.text_pobox_warning);
-                        
+
             r && !n ? cityParent.insertBefore(a, cityParent.childNodes[0]) : !r && n && document.getElementById("addressAlertWrapper").remove();
 
             a = d("addressAlertWrapper", "&#9888; " + setting.text_apt_suite);
 
             var aptEmpty = address_2.value.trim() == "";
-            !r && !n && aptEmpty ? cityParent.insertBefore(a, cityParent.childNodes[0]) : !aptEmpty && r && n && document.getElementById ("addressAlertWrapper").remove();            
+            !r && !n && aptEmpty ? cityParent.insertBefore(a, cityParent.childNodes[0]) : !aptEmpty && r && n && document.getElementById ("addressAlertWrapper").remove();
         },
         a = function(e) {
             var t = document.getElementById("numAlertWrapper"),
@@ -182,7 +185,7 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
       httpreq.onreadystatechange = function() {
         if (4 === httpreq.readyState) {
           var resp = JSON.parse(httpreq.responseText);
-          setting = resp.setting;              
+          setting = resp.setting;
           if (setting.pobox_warning ? (address_2 && (address_2.onkeyup = function() {
               return r("");
           }), setting.streetnum_warning ? address_1.onkeyup = function() {
