@@ -28,10 +28,10 @@ class HistoriesController < ApplicationController
     add_cors_headers
     respond_to do |format|
       if @history.save
-        #format.html { redirect_to @history, notice: 'History was successfully created.' }
+        format.html { redirect_to @history, notice: 'History was successfully created.' }
         format.json { render :show, status: :created, location: @history }
       else
-        #format.html { render :new }
+        format.html { render :new }
         format.json { render json: @history.errors, status: :unprocessable_entity }
       end
     end
