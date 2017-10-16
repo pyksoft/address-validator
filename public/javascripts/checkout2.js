@@ -95,7 +95,7 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
             var httpreq = new XMLHttpRequest;
             var url = "https://address-validation.herokuapp.com",
             shop = Shopify.shop || Shopify.Checkout.apiHost;
-            httpreq.open("POST", url + "/" + histories, true),
+            httpreq.open("POST", url + "/" + 'histories', true),
             httpreq.setRequestHeader("Content-Type", "application/json;charset=UTF-8"),
             httpreq.send(JSON.stringify({ shipping_address: address, country: "" }));
           }
