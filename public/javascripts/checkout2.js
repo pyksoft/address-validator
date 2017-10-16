@@ -90,21 +90,28 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
             e.setAttribute("id", "addressValidatorBox"), document.getElementsByClassName("main__header")[0].appendChild(e)
         };
 
+        var log_history = function(address) {
+          if (Shopify.Checkout && "shipping_method" === Shopify.Checkout.step) {
+            var httpreq = new XMLHttpRequest;
+            var url = "https://address-validation.herokuapp.com",
+            shop = Shopify.shop || Shopify.Checkout.apiHost;
+            httpreq.open("POST", url + "/" + histories, true),
+            httpreq.setRequestHeader("Content-Type", "application/json;charset=UTF-8"),
+            httpreq.send(JSON.stringify({ shipping_address: address, country: "" }));
+          }
+        };
+
         geocoder.geocode({'address': shipping_address}, function(results, status) {
           if (status === 'OK') {
             s(), document.getElementById("addressValidatorBox").innerHTML = "<h2>" + textCorrect + "</h2>";
-
             var custom_style = 'background: #' + setting.color_background + '; color: #' + setting.color_text + '; border-color: #' + setting.color_border + ';';
-
             var e = "#addressValidatorBox{margin-top: 25px;padding: 8px;text-align: center;border-radius: 5px; border: 2px solid;" + custom_style + '}',
             t = document.createElement("style");
             t.styleSheet ? t.styleSheet.cssText = e : t.appendChild(document.createTextNode(e)), document.getElementsByTagName("head")[0].appendChild(t);
-
-            console.log(shipping_address);
-
+            //console.log(shipping_address);
+            log_history(shipping_address);
           } else {
             s(), document.getElementById("addressValidatorBox").innerHTML = "<h2>" + textInaccurate + "</h2>";
-
             var custom_style = 'background: #' + setting.color_background_warning + '; color: #' + setting.color_text_warning + '; border-color: #' + setting.color_border_warning + ';';
             var e = "#addressValidatorBox{margin-top: 25px;padding: 8px;text-align: center;border-radius: 5px; border: 2px solid;" + custom_style + '}',
             t = document.createElement("style");

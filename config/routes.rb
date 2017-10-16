@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :histories
   resources :settings, only: [:update, :edit]
   get '/settings', to: 'settings#show'
   root :to => 'home#index'
