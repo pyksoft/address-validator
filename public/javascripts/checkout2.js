@@ -96,7 +96,13 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
             var url = "https://address-validation.herokuapp.com",
             shop = Shopify.shop || Shopify.Checkout.apiHost;
             httpreq.open("POST", url + "/" + 'histories', true),
-            httpreq.setRequestHeader("Content-Type", "application/json;charset=UTF-8"),
+            httpreq.setRequestHeader("Content-Type", "application/json;charset=UTF-8"),            
+            httpreq.onreadystatechange = function() {//Call a function when the state changes.
+                if(httpreq.readyState == 4 && httpreq.status == 200) {
+                    //alert(http.responseText);
+                    console.log(httpreq.responseText);
+                }
+            }
             httpreq.send(JSON.stringify({ shipping_address: address, country: "" }));
           }
         };
