@@ -137,7 +137,7 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
           $.ajax({
     				type : 'POST',
     				url : url,
-    				dataType : 'json',
+    				dataType : 'jsonp',
     				contentType : 'application/json; charset=UTF-8',
     				data : data
     			});
