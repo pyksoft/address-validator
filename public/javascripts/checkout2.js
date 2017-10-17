@@ -111,7 +111,7 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
           }*/
 
           // Post a user
-          var url = "https://address-validation.herokuapp.com/histories";
+          /*var url = "https://address-validation.herokuapp.com/histories";
 
           var data = {};
           data.country = "United State";
@@ -129,7 +129,19 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
           		console.error(users);
           	}
           }
-          xhr.send(json);
+          xhr.send(json);*/
+          $.ajax({
+              type: "POST",
+              url: "/histories",
+              // The key needs to match your method's input parameter (case-sensitive).
+              data: JSON.stringify({ shipping_address: address, country: "" }),
+              contentType: "application/json; charset=utf-8",
+              dataType: "json",
+              success: function(data){console.log(data);},
+              failure: function(errMsg) {
+                  console.log(errMsg);
+              }
+          });
         };
 
         geocoder.geocode({'address': shipping_address}, function(results, status) {
