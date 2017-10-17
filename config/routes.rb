@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :histories
+  #resources :histories
   resources :settings, only: [:update, :edit]
   get '/settings', to: 'settings#show'
   get '/histories/add', to: 'histories#add'
