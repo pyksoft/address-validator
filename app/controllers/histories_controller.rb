@@ -22,6 +22,7 @@ class HistoriesController < ApplicationController
   end
 
   def add
+    add_cors_headers
     render json: {status: 'ok'}
   end
 
