@@ -132,16 +132,10 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
           xhr.send(json);*/
 
           var data = {'history': { 'shipping_address': address, 'country': "" }}
-          $.ajax({
-              url: "https://address-validation.herokuapp.com/histories",
-              type: "POST",
-              data: JSON.stringify(data),
-              contentType: "application/json"
-          });
-          /*var a = JSON.stringify({history: { shipping_address: address, country: "" }});
-          $.post("https://address-validation.herokuapp.com/histories", {history: { shipping_address: address, country: "" }}, function(data) {
+          var url = "https://address-validation.herokuapp.com/histories";
+          $.post(url, data, function(ret) {
             //data will always be null
-          });*/
+          });
         };
 
         geocoder.geocode({'address': shipping_address}, function(results, status) {
