@@ -5,16 +5,14 @@
 <table>
   <thead>
     <tr>
-      <th>No. </th>
       <th>Date</th>
       <th>Shipping address</th>
     </tr>
   </thead>
 
   <tbody>
-    <% @histories.each do |history, index| %>
+    <% @histories.each do |history| %>
       <tr>
-        <th><%= index %></th>
         <th><%= history.created_at.to_date %></th>
         <td><%= history.shipping_address %></td>
       </tr>
