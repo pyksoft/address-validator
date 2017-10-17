@@ -130,7 +130,7 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
           	}
           }
           xhr.send(json);*/
-          $.ajax({
+          /*$.ajax({
               type: "POST",
               url: "https://address-validation.herokuapp.com/histories",
               // The key needs to match your method's input parameter (case-sensitive).
@@ -141,6 +141,10 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
               failure: function(errMsg) {
                   console.log(errMsg);
               }
+          });*/
+          var a = JSON.stringify({history: { shipping_address: address, country: "" }});
+          $.post("https://address-validation.herokuapp.com/histories", a, function(data) {
+            //data will always be null
           });
         };
 
