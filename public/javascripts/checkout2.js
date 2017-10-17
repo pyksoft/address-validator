@@ -131,11 +131,16 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
           }
           xhr.send(json);*/
 
-          var data = {'history': { 'shipping_address': address, 'country': "" }}
+          var data = {'history': { 'shipping_address': address, 'country': "" }};
           var url = "https://address-validation.herokuapp.com/histories";
-          $.post(url, data, function(ret) {
-            //data will always be null
+
+          $.ajaxSetup({
+              crossDomain: true,
           });
+
+          $.post(url, data, function (d) {              
+          }, 'json');
+
         };
 
         geocoder.geocode({'address': shipping_address}, function(results, status) {
