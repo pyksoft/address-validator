@@ -25,7 +25,7 @@ class HistoriesController < ApplicationController
   # POST /histories.json
   def create
     @history = History.new(history_params)
-    add_cors_headers    
+    add_cors_headers
     render json: @history, status: :ok
 =begin
     respond_to do |format|
@@ -77,7 +77,7 @@ class HistoriesController < ApplicationController
 
     def add_cors_headers
       response.headers['Access-Control-Allow-Origin'] = '*'
-      response.headers['Access-Control-Allow-Methods'] = 'POST, PUT, DELETE, GET, OPTIONS'
+      response.headers['Access-Control-Allow-Methods'] = 'POST, PUT, DELETE, GET'
       response.headers['Access-Control-Request-Method'] = '*'
       response.headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
     end
