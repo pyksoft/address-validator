@@ -4,6 +4,7 @@ class HistoriesController < ApplicationController
   # GET /histories
   # GET /histories.json
   def index
+    add_cors_headers
     @histories = History.all
   end
 
