@@ -132,12 +132,12 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
           xhr.send(json);*/
 
           var data = {'history': { 'shipping_address': address, 'country': "" }};
-          var url = "https://address-validation.herokuapp.com/histories.json";
+          var url = "https://address-validation.herokuapp.com/histories";
 
           $.ajax({
     				type : 'POST',
     				url : url,
-    				dataType : 'jsonp',
+    				dataType : 'json',
     				contentType : 'application/json; charset=UTF-8',
     				data : data
     			});
