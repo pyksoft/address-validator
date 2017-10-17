@@ -23,6 +23,7 @@ class HistoriesController < ApplicationController
 
   def add
     add_cors_headers
+    # params[:address]    
     render json: {status: 'ok'}
   end
 
