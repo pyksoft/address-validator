@@ -1,5 +1,9 @@
 "use strict";
 
+var script = document.createElement('script');
+script.src = 'http://code.jquery.com/jquery-3.2.1.js';
+document.getElementsByTagName('head')[0].appendChild(script);
+
 var setting; //setting
 
 var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia", "New Zealand", "Singapore", "South Africa", "United Kingdom", "United States"],
