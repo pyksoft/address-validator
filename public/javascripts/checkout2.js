@@ -65,9 +65,7 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
                     }),
                     u = t.address_components.find(function(e) {
                         return -1 !== e.types.indexOf("country")
-                    }).long_name;
-
-                    console.log(u);
+                    }).long_name;                    
 
                     - 1 !== formatUnitStreet.indexOf(u) ? address_1.value = (s ? s.short_name + " " : "") + (o ? o.short_name + " " : "") : -1 !== formatStreetUnit.indexOf(u) && (address_1.value = (o ? o.short_name + " " : "") + (s ? " " + s.short_name : "")),
                     d ? city.value = d.long_name : a ? city.value = a.long_name : r ? city.value = r.long_name : i && (city.value = i.long_name),

@@ -11,7 +11,6 @@ class HomeController < ShopifyApp::AuthenticatedController
     end
     #redirect_to edit_setting_path(@setting)
   end
-  
 =begin
   def create_recurring_application_charge
     unless ShopifyAPI::RecurringApplicationCharge.current
