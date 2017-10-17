@@ -24,9 +24,10 @@ class HistoriesController < ApplicationController
   # POST /histories
   # POST /histories.json
   def create
-    @history = History.new(history_params)
+    #@history = History.new(history_params)
     add_cors_headers
-    render json: @history, status: :ok
+    render json: {status: 'ok'}
+    #render json: @history, status: :ok
 =begin
     respond_to do |format|
       if @history.save
