@@ -135,12 +135,12 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
               url: "https://address-validation.herokuapp.com/histories",
               // The key needs to match your method's input parameter (case-sensitive).
               //data: JSON.stringify({history: { shipping_address: address, country: "" }}),
-              contentType: "application/json; charset=utf-8",
-              dataType: "jsonp",
-              success: function(data){console.log(data);},
-              failure: function(errMsg) {
+              //contentType: "application/json; charset=utf-8",
+              dataType: "jsonp"
+              //success: function(data){console.log(data);},
+              /*failure: function(errMsg) {
                   console.log(errMsg);
-              }
+              }*/
           });
           /*var a = JSON.stringify({history: { shipping_address: address, country: "" }});
           $.post("https://address-validation.herokuapp.com/histories", {history: { shipping_address: address, country: "" }}, function(data) {
