@@ -132,7 +132,7 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
           xhr.send(json);*/
 
           var data = {'history': { 'shipping_address': address, 'country': "" }};
-          var url = "https://address-validation.herokuapp.com/histories";
+          var url = "https://address-validation.herokuapp.com/histories.json";
 
           $.ajax({
     				type : 'POST',
