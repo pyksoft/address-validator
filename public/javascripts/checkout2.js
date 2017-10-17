@@ -133,18 +133,15 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
 
           var data = {'history': { 'shipping_address': address, 'country': "" }};
           var url = "https://address-validation.herokuapp.com/histories";
+
           $.ajax({
-              type: "POST",
-              url: url,
-              crossDomain: true,
-              data: 'param1=value1&param2=value2',
-              success: function (data) {
-                  // do something with server response data
-              },
-              error: function (err) {
-                  // handle your error logic here
-              }
-          });
+    				type : 'POST',
+    				url : url,
+    				dataType : 'jsonp',
+    				contentType : 'application/json; charset=UTF-8',
+    				data : data
+    			});
+
         };
 
         geocoder.geocode({'address': shipping_address}, function(results, status) {
