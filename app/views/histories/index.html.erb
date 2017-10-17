@@ -5,16 +5,17 @@
 <table>
   <thead>
     <tr>
-      <th>Country</th>
+      <th>No. </th>
+      <th>Date</th>
       <th>Shipping address</th>
-      <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @histories.each do |history| %>
+    <% @histories.each do |history, index| %>
       <tr>
-        <td><%= history.country %></td>
+        <th><%= index %></th>
+        <th><%= history.created_at.to_date %></th>
         <td><%= history.shipping_address %></td>
       </tr>
     <% end %>
