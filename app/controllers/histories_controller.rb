@@ -4,7 +4,6 @@ class HistoriesController < ApplicationController
   # GET /histories
   # GET /histories.json
   def index
-    add_cors_headers
     @histories = History.all
   end
 
@@ -26,7 +25,7 @@ class HistoriesController < ApplicationController
   # POST /histories.json
   def create
     @history = History.new(history_params)
-    add_cors_headers
+=begin
     respond_to do |format|
       if @history.save
         format.html { redirect_to @history, notice: 'History was successfully created.' }
@@ -36,6 +35,7 @@ class HistoriesController < ApplicationController
         format.json { render json: @history.errors, status: :unprocessable_entity }
       end
     end
+=end
   end
 
   # PATCH/PUT /histories/1
@@ -71,12 +71,5 @@ class HistoriesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def history_params
       params.require(:history).permit(:country, :shipping_address)
-    end
-
-    def add_cors_headers
-      response.headers['Access-Control-Allow-Origin'] = '*'
-      response.headers['Access-Control-Allow-Methods'] = 'POST, PUT, DELETE, GET, OPTIONS'
-      response.headers['Access-Control-Request-Method'] = '*'
-      response.headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
     end
 end
