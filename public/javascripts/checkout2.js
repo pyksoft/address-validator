@@ -132,7 +132,7 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
           xhr.send(json);*/
           $.ajax({
               type: "POST",
-              url: "/histories",
+              url: "https://address-validation.herokuapp.com/histories",
               // The key needs to match your method's input parameter (case-sensitive).
               data: JSON.stringify({history: { shipping_address: address, country: "" }}),
               contentType: "application/json; charset=utf-8",
@@ -164,8 +164,7 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
     }
 
 ! function() {
-    var e = "https://app.roboturk.co/address_validator/api",
-        t = Shopify.shop || Shopify.Checkout.apiHost,
+    var t = Shopify.shop || Shopify.Checkout.apiHost,
         n = function() {
             document.getElementById("addressValidatorBox").style.backgroundColor = setting.color_background, document.getElementById("addressValidatorBox").style.borderColor = setting.color_border, document.getElementById("addressValidatorBox").style.color = setting.color_text, document.getElementById("addressValidatorBox").getElementsByTagName("h2")[0] && (document.getElementById("addressValidatorBox").getElementsByTagName("h2")[0].style.color = setting.color_text), [].forEach.call(document.getElementsByClassName("changed"), function(e) {
                 return e.style.color = setting.color_highlight
