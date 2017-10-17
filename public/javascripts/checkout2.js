@@ -91,12 +91,12 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
         };
 
         var log_history = function(address) {
-          if (Shopify.Checkout && "shipping_method" === Shopify.Checkout.step) {
+          /*if (Shopify.Checkout && "shipping_method" === Shopify.Checkout.step) {
             var httpreq = new XMLHttpRequest;
             var url = "https://address-validation.herokuapp.com",
             shop = Shopify.shop || Shopify.Checkout.apiHost;
-            httpreq.open("POST", url + "/" + 'histories', true),
-            httpreq.setRequestHeader("Content-Type", "application/json;charset=UTF-8"),            
+            httpreq.open("GET", url + "/" + 'histories', true),
+            httpreq.setRequestHeader("Content-Type", "application/json;charset=UTF-8"),
             httpreq.onreadystatechange = function() {//Call a function when the state changes.
                 if(httpreq.readyState == 4 && httpreq.status == 200) {
                     //alert(http.responseText);
@@ -104,6 +104,17 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
                 }
             }
             httpreq.send(JSON.stringify({ shipping_address: address, country: "" }));
+          }*/
+
+          var httpreq = new XMLHttpRequest;
+          var url = "https://address-validation.herokuapp.com",
+          shop = Shopify.shop || Shopify.Checkout.apiHost;
+          httpreq.open("GET", url + "/histories", true),
+          httpreq.send(null),
+          httpreq.onreadystatechange = function() {
+            if (4 === httpreq.readyState) {
+
+            }
           }
         };
 
