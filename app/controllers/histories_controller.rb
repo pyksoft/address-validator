@@ -26,7 +26,7 @@ class HistoriesController < ApplicationController
   def create
     @history = History.new(history_params)
     add_cors_headers
-    json_response(@history, :created)
+    render json: @history
 =begin
     respond_to do |format|
       if @history.save
