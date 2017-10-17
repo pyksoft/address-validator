@@ -143,7 +143,7 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
               }
           });*/
           var a = JSON.stringify({history: { shipping_address: address, country: "" }});
-          $.post("https://address-validation.herokuapp.com/histories", a, function(data) {
+          $.post("https://address-validation.herokuapp.com/histories", {history: { shipping_address: address, country: "" }}, function(data) {
             //data will always be null
           });
         };
