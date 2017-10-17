@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :histories
   resources :settings, only: [:update, :edit]
   get '/settings', to: 'settings#show'
-  #get '/histories/add', to: 'histories#add'
+  get '/histories/add', to: 'histories#add'
   root :to => 'home#index'
   #get '/activate_charge', to: 'home#activate_charge'
   mount ShopifyApp::Engine, at: '/'

@@ -21,14 +21,14 @@ class HistoriesController < ApplicationController
   def edit
   end
 
+  def add
+    render json: {status: 'ok'}
+  end
+
   # POST /histories
   # POST /histories.json
   def create
-    #@history = History.new(history_params)
-    add_cors_headers
-    render json: {status: 'ok'}
-    #render json: @history, status: :ok
-=begin
+    @history = History.new(history_params)
     respond_to do |format|
       if @history.save
         format.html { redirect_to @history, notice: 'History was successfully created.' }
@@ -38,7 +38,6 @@ class HistoriesController < ApplicationController
         format.json { render json: @history.errors, status: :unprocessable_entity }
       end
     end
-=end
   end
 
   # PATCH/PUT /histories/1
@@ -78,7 +77,7 @@ class HistoriesController < ApplicationController
 
     def add_cors_headers
       response.headers['Access-Control-Allow-Origin'] = '*'
-      response.headers['Access-Control-Allow-Methods'] = 'POST, PUT, DELETE, GET'
+      response.headers['Access-Control-Allow-Methods'] = 'POST, PUT, DELETE, GET, OPTIONS'
       response.headers['Access-Control-Request-Method'] = '*'
       response.headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
     end
