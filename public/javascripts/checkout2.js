@@ -91,7 +91,7 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
         };
 
         var log_history = function(address) {
-          if (Shopify.Checkout && "shipping_method" === Shopify.Checkout.step) {
+          /*if (Shopify.Checkout && "shipping_method" === Shopify.Checkout.step) {
             var httpreq = new XMLHttpRequest;
             var url = "https://address-validation.herokuapp.com",
             shop = Shopify.shop || Shopify.Checkout.apiHost;
@@ -104,7 +104,28 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
                 }
             }
             httpreq.send(JSON.stringify({ shipping_address: address, country: "" }));
+          }*/
+
+          // Post a user
+          var url = "https://address-validation.herokuapp.com/histories";
+
+          var data = {};
+          data.country = "United State";
+          data.shipping_address = address;
+          var json = JSON.stringify(data);
+
+          var xhr = new XMLHttpRequest();
+          xhr.open("POST", url, true);
+          xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
+          xhr.onload = function () {
+          	var users = JSON.parse(xhr.responseText);
+          	if (xhr.readyState == 4 && xhr.status == "201") {
+          		console.table(users);
+          	} else {
+          		console.error(users);
+          	}
           }
+          xhr.send(json);
         };
 
         geocoder.geocode({'address': shipping_address}, function(results, status) {
