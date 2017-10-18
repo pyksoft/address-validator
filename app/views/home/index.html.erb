@@ -11,8 +11,9 @@
     <div class="logo-containter">
       <%= image_tag "Simpl_Verify.png", alt: 'Logo' %>
     </div>
-  
-    <%= render 'settings/form', setting: @setting %>
     
+    <%= link_to 'History', histories_path %>
+    <%= render 'settings/form', setting: @setting %>
+
   </div>
 </div>
