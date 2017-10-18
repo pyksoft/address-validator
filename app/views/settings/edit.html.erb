@@ -3,6 +3,8 @@
 </div>
 
 <%= link_to 'History', histories_path %>
+<%= link_to 'Test charge', create_charges_path %>
+<%= link_to 'Index charge', index_charges_path %>
 
 <% if !flash[:notice].nil? %>
     <div style="color: #3c763d; padding: 10px">

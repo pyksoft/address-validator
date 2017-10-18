@@ -6,8 +6,9 @@ Rails.application.routes.draw do
   get '/histories', to: 'histories#index'
 
   root :to => 'home#index'
-  get '/activate_charge', to: 'home#activate_charge'
-  get '/create_usage_charge', to: 'home#create_usage_charge'
+  get '/activate_charges', to: 'home#activate_charges'
+  get '/index_charges', to: 'home#index_charges'
+  get '/create_charges', to: 'home#create_charges'
 
   #get '/activate_charge', to: 'home#activate_charge'
   mount ShopifyApp::Engine, at: '/'

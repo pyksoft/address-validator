@@ -1,0 +1,62 @@
+<script type="text/javascript">
+  ShopifyApp.ready(function(){
+    ShopifyApp.Bar.initialize({
+      title: "One-time Charge",
+      icon: "<%= asset_path('favicon.png') %>"
+    });
+  });
+</script>
+
+<% flash.each do |key, value| %>
+  <div class="alert alert-<%= key %>"><%= value %></div>
+<% end %>
+
+<div class="section">
+  <div class= "section_left col-md-3">
+    <h4>
+      One-time Charge
+    </h4>
+    <p>
+      Create a new one-time charge
+    </p>
+  </div>
+
+  <div class="col-md-9">
+    <% if @application_charges.any? %>
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @application_charges.each do |charge| %>
+                <tr>
+                  <td>
+                    <%= charge.name %>
+                  </td>
+                  <td>
+                    $<%= charge.price %>
+                  </td>
+                  <td>
+                    <% if charge.status == 'accepted' %>
+                      <%= link_to 'Activate charge', activate_application_charge_path(id: charge.id), method: :post %>
+                    <% else %>
+                      <span class="badge">
+                        <%= charge.status.capitalize %>
+                      </span>
+                    <% end %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
