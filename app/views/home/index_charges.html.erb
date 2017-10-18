@@ -35,7 +35,7 @@
                   </td>
                   <td>
                     <% if charge.status == 'accepted' %>
-                      <%= link_to 'Activate charge', activate_application_charge_path(id: charge.id), method: :post %>
+                      <%= link_to 'Activate charge', activate_charges_path(id: charge.id), method: :post %>
                     <% else %>
                       <span class="badge">
                         <%= charge.status.capitalize %>
