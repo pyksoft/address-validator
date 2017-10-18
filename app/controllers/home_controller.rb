@@ -15,12 +15,9 @@ class HomeController < ShopifyApp::AuthenticatedController
   end
 
   def create_charges
-    params[:application_charge][:name] = 'test'
-    params[:application_charge][:price] = '0.05'
-
-    application_charge = ShopifyAPI::ApplicationCharge.new(params[:application_charge])
+    application_charge = ShopifyAPI::ApplicationCharge.new({:name => "Fee for validating shipping address", :price => 0.05, :return_url => index_charges_url})
     application_charge.test = true
-    application_charge.return_url = index_charges_url
+    #application_charge.return_url = index_charges_url
 
     if application_charge.save
       flash[:success] = "One-time charge was successfully created"
