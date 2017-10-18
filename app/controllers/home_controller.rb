@@ -34,7 +34,7 @@ class HomeController < ShopifyApp::AuthenticatedController
     if application_charge.activate
       flash[:success] = "One-time charge has been activated"
     end
-    redirect_to application_charges_path
+    redirect_to index_charges_path
   end
 
   private
