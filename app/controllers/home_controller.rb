@@ -1,6 +1,6 @@
 class HomeController < ShopifyApp::AuthenticatedController
   def index
-    create_recurring_application_charge
+    #create_recurring_application_charge
 
     @shop = ShopifyAPI::Shop.current
     @setting = Setting.find_by store_domain: @shop.domain
