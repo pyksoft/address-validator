@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get '/histories', to: 'histories#index'
 
   root :to => 'home#index'
-  get '/activate_charges/:id', to: 'home#activate_charges'
+  get '/activate_charges/:id', to: 'home#activate_charges', as: 'activate_charges'
   get '/index_charges', to: 'home#index_charges'
   get '/create_charges', to: 'home#create_charges'
 
