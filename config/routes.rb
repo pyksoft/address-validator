@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   get '/settings', to: 'settings#show'
   get '/histories/add', to: 'histories#add'
   get '/histories', to: 'histories#index'
+
   root :to => 'home#index'
+  get '/activate_charge', to: 'home#activate_charge'
+  get '/create_usage_charge', to: 'home#create_usage_charge'
+
   #get '/activate_charge', to: 'home#activate_charge'
   mount ShopifyApp::Engine, at: '/'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
