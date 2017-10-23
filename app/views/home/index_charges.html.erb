@@ -19,6 +19,7 @@
           <table class="table table-hover">
             <thead>
               <tr>
+                <th>Id</th>
                 <th>Name</th>
                 <th>Price</th>
                 <th>Status</th>
@@ -27,6 +28,9 @@
             <tbody>
               <% @application_charges.each do |charge| %>
                 <tr>
+                  <td>
+                    <%= charge.id %>
+                  </td>
                   <td>
                     <%= charge.name %>
                   </td>
