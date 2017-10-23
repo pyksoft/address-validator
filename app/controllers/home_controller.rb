@@ -21,12 +21,13 @@ class HomeController < ShopifyApp::AuthenticatedController
 
     if application_charge.save
       flash[:success] = "One-time charge was successfully created"
-      #fullpage_redirect_to application_charge.confirmation_url
+      #fullpage_redirect_to application_charge.confirmation_url      
     else
       puts application_charge.errors.full_messages.first.to_s.capitalize
       flash[:danger] = application_charge.errors.full_messages.first.to_s.capitalize
-      redirect_to index_charges_path
+      #redirect_to index_charges_path
     end
+    redirect_to index_charges_path
   end
 
   def activate_charges
