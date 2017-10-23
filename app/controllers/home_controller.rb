@@ -19,7 +19,7 @@ class HomeController < ShopifyApp::AuthenticatedController
     application_charge.test = true
     #application_charge.return_url = index_charges_url
     if application_charge.save
-      flash[:success] = "One-time charge was successfully created. #{application_charge}"
+      flash[:success] = "One-time charge was successfully created. #{application_charge.id}"
       #fullpage_redirect_to application_charge.confirmation_url
       redirect_to index_charges_path
     else
