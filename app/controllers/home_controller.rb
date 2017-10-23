@@ -15,17 +15,17 @@ class HomeController < ShopifyApp::AuthenticatedController
   end
 
   def create_charges
-    application_charge = ShopifyAPI::ApplicationCharge.new({:name => "Fee for validating shipping address", :price => 0.5, :return_url => index_charges_url})
+    application_charge = ShopifyAPI::ApplicationCharge.new({:name => "Fee for validating shipping address", :price => 0.5, :status => 'active', :return_url => index_charges_url})
     application_charge.test = true
     #application_charge.return_url = index_charges_url
-
     if application_charge.save
       flash[:success] = "One-time charge was successfully created"
-      fullpage_redirect_to application_charge.confirmation_url
+      #fullpage_redirect_to application_charge.confirmation_url
+      redirect_to index_charges_path
     else
       puts application_charge.errors.full_messages.first.to_s.capitalize
       flash[:danger] = application_charge.errors.full_messages.first.to_s.capitalize
-      redirect_to index_charges_path
+      #redirect_to index_charges_path
     end
   end
 
