@@ -22,7 +22,7 @@ class HomeController < ShopifyApp::AuthenticatedController
       flash[:success] = "One-time charge was successfully created"
       #fullpage_redirect_to application_charge.confirmation_url
       params[:id] = application_charge
-      activate_charges(application_charge)
+      activate_charges
     else
       puts application_charge.errors.full_messages.first.to_s.capitalize
       flash[:danger] = application_charge.errors.full_messages.first.to_s.capitalize
