@@ -41,7 +41,9 @@ class HomeController < ShopifyApp::AuthenticatedController
     def application_charge_params
       params.require(:application_charge).permit(
         :name,
-        :price
+        :price.
+        :status,
+        :accepted
       )
     end
 
