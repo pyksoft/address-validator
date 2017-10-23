@@ -29,9 +29,10 @@ class HomeController < ShopifyApp::AuthenticatedController
     end
 =end
     application_charge = ShopifyAPI::ApplicationCharge.find(14123032)
-    if application_charge.activate
-      flash[:success] = "One-time charge has been activated"
-    end
+
+    #if application_charge.activate
+      flash[:success] = "One-time charge has been activated #{application_charge}"
+    #end
     redirect_to index_charges_path
   end
 
