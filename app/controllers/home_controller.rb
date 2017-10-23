@@ -25,11 +25,8 @@ class HomeController < ShopifyApp::AuthenticatedController
     else
       puts application_charge.errors.full_messages.first.to_s.capitalize
       flash[:danger] = application_charge.errors.full_messages.first.to_s.capitalize
-      #redirect_to index_charges_path
+      redirect_to index_charges_path
     end
-    
-    #activate_charges(application_charge)
-    redirect_to index_charges_path
   end
 
   def activate_charges
@@ -37,7 +34,7 @@ class HomeController < ShopifyApp::AuthenticatedController
     if application_charge.activate
       flash[:success] = "One-time charge has been activated"
     end
-    redirect_to index_charges_path
+    redirect_to application_charges_path
   end
 
   private
