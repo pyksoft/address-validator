@@ -17,7 +17,7 @@ class HomeController < ShopifyApp::AuthenticatedController
   def create_charges
     application_charge = ShopifyAPI::ApplicationCharge.new({:name => "Fee for validating shipping address", :price => 0.5, :status => 'accepted', :return_url => index_charges_url})
     application_charge.test = true
-    application_charge.status = 'accepted'
+    application_charge.status = 'active'
     #application_charge.return_url = index_charges_url
 
     if application_charge.save
