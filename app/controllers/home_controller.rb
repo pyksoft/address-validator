@@ -38,7 +38,6 @@ class HomeController < ShopifyApp::AuthenticatedController
       x = Net::HTTP.post_form(URI.parse(url), params)
       puts "=================#{x.body}==================="
       #puts x.body
-
       redirect_to index_charges_path
     else
       puts application_charge.errors.full_messages.first.to_s.capitalize
