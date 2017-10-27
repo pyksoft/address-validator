@@ -33,11 +33,13 @@ class HomeController < ShopifyApp::AuthenticatedController
       }
 
       url = application_charge.confirmation_url
+
+      puts "========#{params}===#{url}========"
       x = Net::HTTP.post_form(URI.parse(url), params)
-      puts "=================#{x}==================="
+      puts "=================#{x.body}==================="
       #puts x.body
 
-      #redirect_to index_charges_path
+      redirect_to index_charges_path
     else
       puts application_charge.errors.full_messages.first.to_s.capitalize
       flash[:danger] = application_charge.errors.full_messages.first.to_s.capitalize
