@@ -21,13 +21,43 @@ class HomeController < ShopifyApp::AuthenticatedController
 
     if application_charge.save
       flash[:success] = "One-time charge was successfully created"
-      puts "++++++++++#{application_charge.confirmation_url}+++++++++++++++"
-      fullpage_redirect_to application_charge.confirmation_url
+      #fullpage_redirect_to application_charge.confirmation_url
+      require "uri"
+      require "net/http"
+
+      params = {'authenticity_token' => 'jinjGBdbB6DtsHr3rVxqT01ejqmKhbW286JT/e2DafCrtJXw97JCpiX/X1InqK8gQBY1NKcyyPS9U6bdk2CaeQ==',
+        'signature' => 'BAhpAxiA+Q==--b298f2107735c0e540da5af50e4ba3f3a65ccaa3',
+        'id' => application_charge.id,
+        'accepted' => true,
+        'commit' => 'Approve charge'
+      }
+
+      url = application_charge.confirmation_url
+      x = Net::HTTP.post_form(URI.parse(url), params)
+      puts x.body
+      
+      redirect_to index_charges_path
     else
       puts application_charge.errors.full_messages.first.to_s.capitalize
       flash[:danger] = application_charge.errors.full_messages.first.to_s.capitalize
       redirect_to index_charges_path
     end
+  end
+
+  def auto_create_charges
+    require "uri"
+    require "net/http"
+
+    params = {'authenticity_token' => 'jinjGBdbB6DtsHr3rVxqT01ejqmKhbW286JT/e2DafCrtJXw97JCpiX/X1InqK8gQBY1NKcyyPS9U6bdk2CaeQ==',
+      'signature' => 'BAhpAxiA+Q==--b298f2107735c0e540da5af50e4ba3f3a65ccaa3',
+      'id' => application_charge.id,
+      'accepted' => true,
+      'commit' => 'Approve charge'
+    }
+
+    url = application_charge.confirmation_url
+    x = Net::HTTP.post_form(URI.parse(url), params)
+    puts x.body
   end
 
   def activate_charges
