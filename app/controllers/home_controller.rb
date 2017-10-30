@@ -11,7 +11,7 @@ class HomeController < ShopifyApp::AuthenticatedController
   end
 
   def create_recurring_application_charge
-    unless ShopifyAPI::RecurringApplicationCharge.current
+    #unless ShopifyAPI::RecurringApplicationCharge.current
       recurring_application_charge = ShopifyAPI::RecurringApplicationCharge.new(
               name: "Simpl address validation",
               price: 0,
@@ -26,7 +26,7 @@ class HomeController < ShopifyApp::AuthenticatedController
         flash[:success] = "One-time charge was successfully created"
         fullpage_redirect_to recurring_application_charge.confirmation_url
       end
-    end
+    #end
   end
 
   def create
