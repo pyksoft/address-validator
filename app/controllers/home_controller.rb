@@ -14,7 +14,7 @@ class HomeController < ShopifyApp::AuthenticatedController
     unless ShopifyAPI::RecurringApplicationCharge.current
       recurring_application_charge = ShopifyAPI::RecurringApplicationCharge.new(
               name: "Simpl address validation",
-              price: 0.00,
+              price: 10,
               return_url: activate_charge_url,
               test: true,
               trial_days: 30,
@@ -22,9 +22,24 @@ class HomeController < ShopifyApp::AuthenticatedController
               terms: "$0.03 for validating an shipping address")
 
       if recurring_application_charge.save
-        @tokens[:confirmation_url] = recurring_application_charge.confirmation_url
-        redirect recurring_application_charge.confirmation_url
+        #@tokens[:confirmation_url] = recurring_application_charge.confirmation_url
+        flash[:success] = "One-time charge was successfully created"
+        fullpage_redirect_to recurring_application_charge.confirmation_url
       end
+    end
+  end
+
+  def create
+    application_charge = ShopifyAPI::ApplicationCharge.new(params[:application_charge])
+    application_charge.test = true
+    application_charge.return_url = application_charges_url
+
+    if application_charge.save
+      flash[:success] = "One-time charge was successfully created"
+      fullpage_redirect_to application_charge.confirmation_url
+    else
+      flash[:danger] = application_charge.errors.full_messages.first.to_s.capitalize
+      redirect_to application_charges_path
     end
   end
 
@@ -36,7 +51,7 @@ class HomeController < ShopifyApp::AuthenticatedController
     redirect root_path
   end
 
-  def create_usage_charge        
+  def create_usage_charge
     @usage_charge = ShopifyAPI::UsageCharge.new(description: "$0.03 for validating an shipping address", price: 0.03)
     @recurring_application_charge = ShopifyAPI::RecurringApplicationCharge.current
     @usage_charge.prefix_options = {recurring_application_charge_id: recurring_application_charge.id}
