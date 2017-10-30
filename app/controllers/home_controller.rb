@@ -36,12 +36,16 @@ class HomeController < ShopifyApp::AuthenticatedController
     bulk_edit_url = root_path
     recurring_application_charge = ShopifyAPI::RecurringApplicationCharge.find(request.params['charge_id'])
     recurring_application_charge.status == "accepted" ? recurring_application_charge.activate : redirect(bulk_edit_url)
-    #create_order_webhook
     redirect_to root_path
   end
 
-  def create_usage_charge
-    @usage_charge = ShopifyAPI::UsageCharge.new(description: "$0.03 for validating an shipping address", price: 0.03)
+  def self.create_usage_charge
+    price = 0.03
+    if params(:price)
+      price = params(:price)
+    end
+
+    @usage_charge = ShopifyAPI::UsageCharge.new(description: "$0.03 for validating an shipping address", price: price)
     recurring_application_charge = ShopifyAPI::RecurringApplicationCharge.current
     @usage_charge.prefix_options = {recurring_application_charge_id: recurring_application_charge.id}
     @usage_charge.save
