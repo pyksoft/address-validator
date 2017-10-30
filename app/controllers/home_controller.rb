@@ -10,6 +10,42 @@ class HomeController < ShopifyApp::AuthenticatedController
     end
   end
 
+  def create_recurring_application_charge
+    unless ShopifyAPI::RecurringApplicationCharge.current
+      recurring_application_charge = ShopifyAPI::RecurringApplicationCharge.new(
+              name: "Simpl address validation",
+              price: 0.00,
+              return_url: activate_charge_url,
+              test: true,
+              trial_days: 30,
+              capped_amount: 100,
+              terms: "$0.03 for validating an shipping address")
+
+      if recurring_application_charge.save
+        @tokens[:confirmation_url] = recurring_application_charge.confirmation_url
+        redirect recurring_application_charge.confirmation_url
+      end
+    end
+  end
+
+  def activate_charge
+    bulk_edit_url = root_path
+    recurring_application_charge = ShopifyAPI::RecurringApplicationCharge.find(request.params['charge_id'])
+    recurring_application_charge.status == "accepted" ? recurring_application_charge.activate : redirect(bulk_edit_url)
+    #create_order_webhook
+    redirect root_path
+  end
+
+  def create_usage_charge
+    create_recurring_application_charge
+    
+    @usage_charge = ShopifyAPI::UsageCharge.new(description: "$0.03 for validating an shipping address", price: 0.03)
+    @recurring_application_charge = ShopifyAPI::RecurringApplicationCharge.current
+    @usage_charge.prefix_options = {recurring_application_charge_id: recurring_application_charge.id}
+    @usage_charge.save
+  end
+
+=begin
   def index_charges
     @application_charges = ShopifyAPI::ApplicationCharge.all || []
   end
@@ -22,44 +58,12 @@ class HomeController < ShopifyApp::AuthenticatedController
     if application_charge.save
       flash[:success] = "One-time charge was successfully created"
       #fullpage_redirect_to application_charge.confirmation_url
-      require "uri"
-      require "net/http"
-
-      params = {'authenticity_token' => 'jinjGBdbB6DtsHr3rVxqT01ejqmKhbW286JT/e2DafCrtJXw97JCpiX/X1InqK8gQBY1NKcyyPS9U6bdk2CaeQ==',
-        'signature' => 'BAhpAxiA+Q==--b298f2107735c0e540da5af50e4ba3f3a65ccaa3',
-        'id' => application_charge.id,
-        'accepted' => true,
-        'commit' => 'Approve charge'
-      }
-
-      url = application_charge.confirmation_url
-
-      puts "========#{params}===#{url}========"
-      x = Net::HTTP.post_form(URI.parse(url), params)
-      puts "=================#{x.body}==================="
-      #puts x.body
       redirect_to index_charges_path
     else
       puts application_charge.errors.full_messages.first.to_s.capitalize
       flash[:danger] = application_charge.errors.full_messages.first.to_s.capitalize
       redirect_to index_charges_path
     end
-  end
-
-  def auto_create_charges
-    require "uri"
-    require "net/http"
-
-    params = {'authenticity_token' => 'jinjGBdbB6DtsHr3rVxqT01ejqmKhbW286JT/e2DafCrtJXw97JCpiX/X1InqK8gQBY1NKcyyPS9U6bdk2CaeQ==',
-      'signature' => 'BAhpAxiA+Q==--b298f2107735c0e540da5af50e4ba3f3a65ccaa3',
-      'id' => application_charge.id,
-      'accepted' => true,
-      'commit' => 'Approve charge'
-    }
-
-    url = application_charge.confirmation_url
-    x = Net::HTTP.post_form(URI.parse(url), params)
-    puts x.body
   end
 
   def activate_charges
@@ -69,7 +73,7 @@ class HomeController < ShopifyApp::AuthenticatedController
     end
     redirect_to index_charges_path
   end
-
+=end
   private
     def application_charge_params
       params.require(:application_charge).permit(
