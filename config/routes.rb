@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   #get '/create_charges', to: 'home#create_charges'
   get '/create_usage_charge', to: 'home#create_usage_charge'
   get '/activate_charge', to: 'home#activate_charge'
-
+  get '/create_recurring_application_charge', to: 'home#create_recurring_application_charge', as: 'create_recurring'
 
   #get '/activate_charge', to: 'home#activate_charge'
   mount ShopifyApp::Engine, at: '/'

@@ -36,9 +36,7 @@ class HomeController < ShopifyApp::AuthenticatedController
     redirect root_path
   end
 
-  def create_usage_charge
-    create_recurring_application_charge
-    
+  def create_usage_charge        
     @usage_charge = ShopifyAPI::UsageCharge.new(description: "$0.03 for validating an shipping address", price: 0.03)
     @recurring_application_charge = ShopifyAPI::RecurringApplicationCharge.current
     @usage_charge.prefix_options = {recurring_application_charge_id: recurring_application_charge.id}
