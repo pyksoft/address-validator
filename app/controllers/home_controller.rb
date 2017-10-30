@@ -14,7 +14,7 @@ class HomeController < ShopifyApp::AuthenticatedController
     unless ShopifyAPI::RecurringApplicationCharge.current
       recurring_application_charge = ShopifyAPI::RecurringApplicationCharge.new(
               name: "Simpl address validation",
-              price: 10,
+              price: 0,
               return_url: activate_charge_url,
               test: true,
               trial_days: 30,
