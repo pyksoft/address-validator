@@ -35,7 +35,12 @@ gem 'jbuilder', '~> 2.5'
 gem 'shopify_app'
 gem 'jquery-rails'
 gem 'bootstrap-sass', '3.3.7'
-gem 'whenever', :require => false
+# gem 'whenever', :require => false
+
+#gem 'resque' # background jobs
+gem 'resque'
+gem 'resque-scheduler'
+gem 'heroku'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

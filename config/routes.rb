@@ -1,3 +1,6 @@
+require 'resque-scheduler'
+require 'resque/scheduler/server'
+
 Rails.application.routes.draw do
   #resources :histories
   resources :settings, only: [:update, :edit]
@@ -12,6 +15,8 @@ Rails.application.routes.draw do
   get '/create_usage_charge', to: 'home#create_usage_charge'
   get '/activate_charge', to: 'home#activate_charge'
   get '/create_recurring_application_charge', to: 'home#create_recurring_application_charge', as: 'create_recurring'
+
+  mount Resque::Server.new, :at => '/resque'
 
   #get '/activate_charge', to: 'home#activate_charge'
   mount ShopifyApp::Engine, at: '/'
