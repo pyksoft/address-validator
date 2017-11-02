@@ -2,6 +2,6 @@ class PrintJob
   @queue = :test
 
   def self.perform()
-    puts "test"
+    puts "test12"
   end
-end 
+end
