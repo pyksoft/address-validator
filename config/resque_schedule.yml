@@ -1,3 +1,7 @@
 "Print Job":
   class: PrintJob
   cron: "* * * * *"
+
+"Print Job every 5min":
+  class: PrintJob
+  cron: "5 * * * *"
