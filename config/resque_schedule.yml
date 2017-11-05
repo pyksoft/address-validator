@@ -1,3 +1,7 @@
-"Print Job daily":
+#"Print Job daily":
+#  class: PrintJob
+#  cron: "* * */1 * *"
+
+"Usage every 5 min":
   class: PrintJob
-  cron: "* * */1 * *"
+  cron: "*/5 * * * *"
