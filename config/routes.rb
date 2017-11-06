@@ -7,8 +7,9 @@ Rails.application.routes.draw do
 
   resources :settings, only: [:update, :edit]
   get '/settings', to: 'settings#show'
-  get '/histories/add', to: 'histories#add'
+  #get '/histories/add', to: 'histories#add'
   get '/histories', to: 'histories#index'
+  get '/settings/add_history', to: 'settings#add_history', as: 'add_history'
   #resources :histories
   #post '/activate_charges/:id', to: 'home#activate_charges', as: 'activate_charges'
   #get '/index_charges', to: 'home#index_charges'

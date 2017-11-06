@@ -65,7 +65,7 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
                     }),
                     u = t.address_components.find(function(e) {
                         return -1 !== e.types.indexOf("country")
-                    }).long_name;                    
+                    }).long_name;
 
                     - 1 !== formatUnitStreet.indexOf(u) ? address_1.value = (s ? s.short_name + " " : "") + (o ? o.short_name + " " : "") : -1 !== formatStreetUnit.indexOf(u) && (address_1.value = (o ? o.short_name + " " : "") + (s ? " " + s.short_name : "")),
                     d ? city.value = d.long_name : a ? city.value = a.long_name : r ? city.value = r.long_name : i && (city.value = i.long_name),
@@ -97,7 +97,7 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
         var log_history = function(address) {
           var httpreq = new XMLHttpRequest;
           var url = "https://address-validation.herokuapp.com";
-          httpreq.open("GET", url + "/histories/add?address=" + address, true),
+          httpreq.open("GET", url + "/add_history?address=" + address, true),
           httpreq.send(null),
           httpreq.onreadystatechange = function() {
             if (4 === httpreq.readyState) {

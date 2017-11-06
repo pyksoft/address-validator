@@ -20,13 +20,15 @@ class HistoriesController < ShopifyApp::AuthenticatedController
   # GET /histories/1/edit
   def edit
   end
-
+  
+=begin
   def add
     add_cors_headers
     @history = History.new shipping_address: params[:address]
     @history.save
     render json: {status: 'ok'}
   end
+=end
 
   def usage_charge
     usage_price = 0;
