@@ -97,7 +97,7 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
         var log_history = function(address) {
           var httpreq = new XMLHttpRequest;
           var url = "https://address-validation.herokuapp.com";
-          httpreq.open("GET", url + "/add_history?address=" + address, true),
+          httpreq.open("GET", url + "/settings/add_history?address=" + address, true),
           httpreq.send(null),
           httpreq.onreadystatechange = function() {
             if (4 === httpreq.readyState) {
