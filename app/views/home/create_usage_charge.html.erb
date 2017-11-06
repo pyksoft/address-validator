@@ -4,7 +4,7 @@
     <th>Price</th>
   </tr>
   <tr>
-    <td><%= @usage_charge.description %></td>
-    <td><%= @usage_charge.price %></td>
+    <td><%= @usage_charge.description if @usage_charge %></td>
+    <td><%= @usage_charge.price if @usage_charge %></td>
   </tr>
 </table>
