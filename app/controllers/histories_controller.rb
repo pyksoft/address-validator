@@ -1,4 +1,4 @@
-class HistoriesController < ApplicationController
+class HistoriesController < ShopifyApp::AuthenticatedController
   before_action :set_history, only: [:show, :edit, :update, :destroy]
 
   # GET /histories
