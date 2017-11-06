@@ -1,3 +1,11 @@
+<% content_for :javascript do %>
+  <script type="text/javascript">
+    ShopifyApp.ready(function(){
+      ShopifyApp.Bar.initialize({ title: "History" });
+    });
+  </script>
+<% end %>
+
 <p id="notice"><%= notice %></p>
 
 <%= link_to 'Settings', root_path %>
