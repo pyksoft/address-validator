@@ -4,4 +4,4 @@
 
 "Usage every 5 min":
   class: DailyUsageJob
-  cron: "*/5 * * * *"
+  cron: "*/1 * * * *"

@@ -50,6 +50,7 @@ class HomeController < ShopifyApp::AuthenticatedController
   def self.create_usage_charge
     #if params(:price)
       price = params(:price)
+      puts "-----------------price---#{price}-------------------------"
       @usage_charge = ShopifyAPI::UsageCharge.new(description: "$0.03 for validating an shipping address", price: price)
       recurring_application_charge = ShopifyAPI::RecurringApplicationCharge.current
       @usage_charge.prefix_options = {recurring_application_charge_id: recurring_application_charge.id}
