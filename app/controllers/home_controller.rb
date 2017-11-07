@@ -1,4 +1,4 @@
-class HomeController < ShopifyApp::AuthenticatedController
+class HomeController < AuthenticatedController
   def index
     #create_recurring_application_charge
     @shop = ShopifyAPI::Shop.current
