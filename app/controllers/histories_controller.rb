@@ -1,4 +1,4 @@
-class HistoriesController < ShopifyApp::AuthenticatedController
+class HistoriesController < ApplicationController
   before_action :set_history, only: [:show, :edit, :update, :destroy]
 
   # GET /histories
@@ -20,7 +20,7 @@ class HistoriesController < ShopifyApp::AuthenticatedController
   # GET /histories/1/edit
   def edit
   end
-  
+
   def usage_charge
     usage_price = 0;
     HistoriesController.create_usage_charge(price: usage_price)
