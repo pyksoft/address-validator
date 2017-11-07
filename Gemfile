@@ -33,7 +33,7 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'shopify_app'
-gem 'shopify_api'
+#gem 'shopify_api'
 gem 'jquery-rails'
 gem 'bootstrap-sass', '3.3.7'
 # gem 'whenever', :require => false

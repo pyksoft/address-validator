@@ -3,15 +3,7 @@ require 'resque/scheduler/server'
 
 Rails.application.routes.draw do
   root :to => 'home#index'
-  #mount ShopifyApp::Engine, at: '/'
-
   mount ShopifyApp::Engine, at: '/'
-  controller :sessions do
-    get 'login' => :new, :as => :login
-    post 'login' => :create, :as => :authenticate
-    get 'auth/shopify/callback' => :callback
-    get 'logout' => :destroy, :as => :logout
-  end
 
   resources :settings, only: [:update, :edit]
   get '/settings', to: 'settings#show'
