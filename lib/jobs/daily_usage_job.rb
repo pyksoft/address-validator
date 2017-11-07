@@ -6,6 +6,6 @@ class DailyUsageJob
     histories.count
     puts "#{Time.now.midnight - 1.day} ... #{Time.now.midnight} : #{histories.count}"
     #HomeController.create_usage_charge(price: histories.count * 0.03)
-    HomeController.create_usage_charge(price: 10 * 0.03)
+    HomeController.daily_usage(price: 10 * 0.03)
   end
 end

@@ -47,7 +47,7 @@ class HomeController < ShopifyApp::AuthenticatedController
     redirect_to root_path
   end
 
-  def self.create_usage_charge
+  def create_usage_charge
     #if params(:price)
       #price = params(:price)
       price = 1
@@ -58,6 +58,10 @@ class HomeController < ShopifyApp::AuthenticatedController
       @usage_charge.prefix_options = {recurring_application_charge_id: recurring_application_charge.id}
       @usage_charge.save
     #end
+  end
+
+  def self.daily_usage
+
   end
 
   private
