@@ -21,11 +21,13 @@
   </thead>
 
   <tbody>
-    <% @histories.each do |history| %>
-      <tr>
-        <th><%= history.created_at.to_date %></th>
-        <td><%= history.shipping_address %></td>
-      </tr>
+    <% unless @histories.nil?%>
+      <% @histories.each do |history| %>
+        <tr>
+          <th><%= history.created_at.to_date %></th>
+          <td><%= history.shipping_address %></td>
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>
