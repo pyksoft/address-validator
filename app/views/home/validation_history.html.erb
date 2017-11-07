@@ -25,7 +25,7 @@
     <% unless @histories.nil? %>
       <% @histories.each_with_index do |history, index| %>
         <tr>
-          <th>index</th>
+          <th><%= index %></th>
           <th><%= history.created_at.to_date if history %></th>
           <td><%= history.shipping_address if history %></td>
         </tr>
