@@ -1,0 +1,22 @@
+<%= form_with(model: daily_usage, local: true) do |form| %>
+  <% if daily_usage.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(daily_usage.errors.count, "error") %> prohibited this daily_usage from being saved:</h2>
+
+      <ul>
+      <% daily_usage.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.text_field :price, id: :daily_usage_price %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

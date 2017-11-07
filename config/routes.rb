@@ -2,6 +2,7 @@ require 'resque-scheduler'
 require 'resque/scheduler/server'
 
 Rails.application.routes.draw do
+  resources :daily_usages
   root :to => 'home#index'
   mount ShopifyApp::Engine, at: '/'
 
@@ -9,6 +10,7 @@ Rails.application.routes.draw do
   get '/settings', to: 'settings#show'
   #get '/histories/add', to: 'histories#add'
   get '/histories', to: 'home#validation_history'
+  get '/usage_charge', to: 'home#usage_charge'
   get '/add_history', to: 'histories#add_history'
   #resources :histories
   #post '/activate_charges/:id', to: 'home#activate_charges', as: 'activate_charges'

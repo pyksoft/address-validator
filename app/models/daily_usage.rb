@@ -1,0 +1,2 @@
+class DailyUsage < ApplicationRecord
+end

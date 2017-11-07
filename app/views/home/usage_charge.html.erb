@@ -10,24 +10,22 @@
 
 <%= link_to '<< Settings', root_path %>
 
-<h2>Histories</h2>
+<h2>Daily Usage Charges</h2>
 
 <table class="table">
   <thead>
     <tr>
-      <th>No.</th>
       <th>Date</th>
-      <th>Shipping address</th>
+      <th>Price</th>
     </tr>
   </thead>
 
   <tbody>
-    <% unless @histories.nil? %>
-      <% @histories.each_with_index do |history, index| %>
+    <% unless @usage_charge.nil? %>
+      <% @usage_charge.each_with_index do |usage_charge, index| %>
         <tr>
           <th><%= index + 1 %></th>
-          <th><%= history.created_at.to_date if history %></th>
-          <td><%= history.shipping_address if history %></td>
+          <td><%= usage_charge.price %></td>
         </tr>
       <% end %>
     <% end %>
