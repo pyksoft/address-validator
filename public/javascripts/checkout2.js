@@ -96,9 +96,8 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
 
         var log_history = function(address, shop) {
           var httpreq = new XMLHttpRequest;
-          var url = "https://address-validation.herokuapp.com";
-          alert(1);
-          //var params = "address=" + address + '&shop=' + shop;
+          var url = "https://address-validation.herokuapp.com";          
+          var params = "address=" + address + '&shop=' + shop;
           console.log(params);
           httpreq.open("GET", url + "/add_history?" + encodeURIComponent(params), true),
           httpreq.send(null),
