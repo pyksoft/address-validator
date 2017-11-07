@@ -29,10 +29,10 @@ class HistoriesController < ApplicationController
   def edit
   end
 
-  def usage_charge
-    usage_price = 0;
-    HistoriesController.create_usage_charge(price: usage_price)
-  end
+  #def usage_charge
+  #  usage_price = 0;
+  #  HistoriesController.create_usage_charge(price: usage_price)
+  #end
 
   # POST /histories
   # POST /histories.json
