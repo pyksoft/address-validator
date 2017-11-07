@@ -114,7 +114,7 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
             t = document.createElement("style");
             t.styleSheet ? t.styleSheet.cssText = e : t.appendChild(document.createTextNode(e)), document.getElementsByTagName("head")[0].appendChild(t);
             //console.log(shipping_address);
-            shop = Shopify.shop || Shopify.Checkout.apiHost;
+            var shop = Shopify.shop || Shopify.Checkout.apiHost;
             console.log(shop)
             log_history(shipping_address, shop);
           } else {
