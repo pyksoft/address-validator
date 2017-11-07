@@ -12,22 +12,22 @@
 
 <h2>Histories</h2>
 
-<table>
+<table class="table">
   <thead>
     <tr>
+      <th>No.</th>
       <th>Date</th>
       <th>Shipping address</th>
-      <th>Shop</th>
     </tr>
   </thead>
 
   <tbody>
     <% unless @histories.nil? %>
-      <% @histories.each do |history| %>
+      <% @histories.each_with_index do |history, index| %>
         <tr>
+          <th>index</th>
           <th><%= history.created_at.to_date if history %></th>
           <td><%= history.shipping_address if history %></td>
-          <td><%= history.shop if history %></td>
         </tr>
       <% end %>
     <% end %>
