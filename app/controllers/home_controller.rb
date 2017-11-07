@@ -12,7 +12,7 @@ class HomeController < ShopifyApp::AuthenticatedController
 
   #validation histories
   def validation_history
-    @histories = History.all    
+    @histories = History.find_by shop: @shop.domain
   end
 
   def create_recurring_application_charge
@@ -45,13 +45,13 @@ class HomeController < ShopifyApp::AuthenticatedController
   end
 
   def self.create_usage_charge
-    if params(:price)
+    #if params(:price)
       price = params(:price)
       @usage_charge = ShopifyAPI::UsageCharge.new(description: "$0.03 for validating an shipping address", price: price)
       recurring_application_charge = ShopifyAPI::RecurringApplicationCharge.current
       @usage_charge.prefix_options = {recurring_application_charge_id: recurring_application_charge.id}
       @usage_charge.save
-    end
+    #end
   end
 
 =begin

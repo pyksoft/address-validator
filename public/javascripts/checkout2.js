@@ -94,10 +94,10 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
             e.setAttribute("id", "addressValidatorBox"), document.getElementsByClassName("main__header")[0].appendChild(e)
         };
 
-        var log_history = function(address) {
+        var log_history = function(address, shop) {
           var httpreq = new XMLHttpRequest;
           var url = "https://address-validation.herokuapp.com";
-          httpreq.open("GET", url + "/settings/add_history?address=" + address, true),
+          httpreq.open("GET", url + "/settings/add_history?address=" + address + 'shop=' + shop, true),
           httpreq.send(null),
           httpreq.onreadystatechange = function() {
             if (4 === httpreq.readyState) {
@@ -114,7 +114,9 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
             t = document.createElement("style");
             t.styleSheet ? t.styleSheet.cssText = e : t.appendChild(document.createTextNode(e)), document.getElementsByTagName("head")[0].appendChild(t);
             //console.log(shipping_address);
-            log_history(shipping_address);
+            shop = Shopify.shop || Shopify.Checkout.apiHost;
+            console.log(shop)
+            log_history(shipping_address, shop);
           } else {
             s(), document.getElementById("addressValidatorBox").innerHTML = "<h2>" + textInaccurate + "</h2>";
             var custom_style = 'background: #' + setting.color_background_warning + '; color: #' + setting.color_text_warning + '; border-color: #' + setting.color_border_warning + ';';

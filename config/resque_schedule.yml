@@ -3,5 +3,5 @@
 #  cron: "* * */1 * *"
 
 "Usage every 5 min":
-  class: PrintJob
+  class: DailyUsageJob
   cron: "*/5 * * * *"

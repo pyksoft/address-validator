@@ -18,7 +18,7 @@ class SettingsController < ApplicationController
 
   def add_history
     add_cors_headers
-    @history = History.new shipping_address: params[:address]
+    @history = History.new shipping_address: params[:address], shop: params[:shop]
     @history.save
     render json: {status: 'ok'}
   end

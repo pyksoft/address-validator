@@ -1,4 +1,4 @@
-require 'jobs/print_job'
+require 'jobs/daily_usage_job'
 
 Resque.redis = ENV['REDISTOGO_URL']
 
