@@ -10,6 +10,11 @@ class HomeController < ShopifyApp::AuthenticatedController
     end
   end
 
+  #validation histories
+  def histories_index
+    @histories = History.all
+  end
+
   def create_recurring_application_charge
     #unless ShopifyAPI::RecurringApplicationCharge.current
       recurring_application_charge = ShopifyAPI::RecurringApplicationCharge.new(
