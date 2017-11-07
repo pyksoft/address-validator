@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get '/settings', to: 'settings#show'
   #get '/histories/add', to: 'histories#add'
   get '/histories', to: 'home#validation_history'
-  get '/settings/add_history', to: 'settings#add_history', as: 'add_history'
+  get '/add_history', to: 'histories#add_history'
   #resources :histories
   #post '/activate_charges/:id', to: 'home#activate_charges', as: 'activate_charges'
   #get '/index_charges', to: 'home#index_charges'

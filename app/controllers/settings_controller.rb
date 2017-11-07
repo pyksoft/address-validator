@@ -16,13 +16,6 @@ class SettingsController < ApplicationController
     render json: {setting: @setting.as_json(:except => [:id, :created_at, :updated_at, :store_domain])}, status: :ok
   end
 
-  def add_history
-    add_cors_headers
-    @history = History.new(shipping_address: params[:address], shop: params[:shop])
-    @history.save
-    render json: {status: 'ok'}
-  end
-
   # GET /settings/new
   def new
     @setting = Setting.new

@@ -17,6 +17,13 @@ class HistoriesController < ApplicationController
     @history = History.new
   end
 
+  def add_history
+    add_cors_headers
+    @history = History.new(shipping_address: params[:address], shop: params[:shop])
+    @history.save
+    render json: {status: 'ok'}
+  end
+  
   # GET /histories/1/edit
   def edit
   end
