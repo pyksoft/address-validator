@@ -1,0 +1,33 @@
+<% content_for :javascript do %>
+  <script type="text/javascript">
+    ShopifyApp.ready(function(){
+      ShopifyApp.Bar.initialize({ title: "History" });
+    });
+  </script>
+<% end %>
+
+<p id="notice"><%= notice %></p>
+
+<%= link_to 'Settings', root_path %>
+
+<h2>Histories</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Shipping address</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @histories.each do |history| %>
+      <tr>
+        <th><%= history.created_at.to_date %></th>
+        <td><%= history.shipping_address %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
