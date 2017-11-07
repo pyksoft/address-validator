@@ -17,15 +17,17 @@
     <tr>
       <th>Date</th>
       <th>Shipping address</th>
+      <th>Shop</th>
     </tr>
   </thead>
 
   <tbody>
-    <% if @histories %>
+    <% unless @histories.nil? %>
       <% @histories.each do |history| %>
         <tr>
           <th><%= history.created_at.to_date if history %></th>
           <td><%= history.shipping_address if history %></td>
+          <td><%= history.shop if history %></td>
         </tr>
       <% end %>
     <% end %>

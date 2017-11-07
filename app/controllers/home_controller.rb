@@ -13,7 +13,7 @@ class HomeController < ShopifyApp::AuthenticatedController
   #validation histories
   def validation_history
     shop = ShopifyAPI::Shop.current
-    puts "-------#{shop}--------------"
+    puts "-------#{shop.domain}--------------"
     #@histories = History.find_by shop: shop.domain
     @histories = History.all
   end
