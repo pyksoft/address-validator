@@ -262,6 +262,7 @@ DEPENDENCIES
   resque-scheduler
   sass-rails (~> 5.0)
   selenium-webdriver
+  shopify_api
   shopify_app
   spring
   spring-watcher-listen (~> 2.0.0)
