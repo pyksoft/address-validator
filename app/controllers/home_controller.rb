@@ -11,7 +11,7 @@ class HomeController < ShopifyApp::AuthenticatedController
   end
 
   #validation histories
-  def histories_index
+  def validation_history
     @histories = History.all
   end
 
