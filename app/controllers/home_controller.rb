@@ -13,6 +13,7 @@ class HomeController < ShopifyApp::AuthenticatedController
   #validation histories
   def validation_history
     @histories = History.all
+    render plain: "OK"
   end
 
   def create_recurring_application_charge
