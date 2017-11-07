@@ -62,12 +62,13 @@ class HomeController < ShopifyApp::AuthenticatedController
 
   def self.daily_usage
     puts "-----create usage----"
-    create_usage_charge(10)
+    #create_usage_charge(10)
     #Resque.logger.info "-------#{params[:price]}----------------"
     #create_usage_charge(price: params[:price])
     #daily_usage = DailyUsage.new(price: params[:price])
     #daily_usage = DailyUsage.new(price: 10)
     #daily_usage.save
+    head :no_content
   end
 
   private
