@@ -19,11 +19,12 @@ class HistoriesController < ApplicationController
 
   def add_history
     add_cors_headers
+    puts "---------------#{shop: params[:shop]}--------#{params[:address]}-----------------------------"
     @history = History.new(shipping_address: params[:address], shop: params[:shop])
     @history.save
     render json: {status: 'ok'}
   end
-  
+
   # GET /histories/1/edit
   def edit
   end
