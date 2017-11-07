@@ -61,6 +61,7 @@ class HomeController < ShopifyApp::AuthenticatedController
   end
 
   def self.daily_usage
+    Resque.logger.info "-------#{params[:price]}----------------"
     create_usage_charge(price: params[:price])
     daily_usage = DailyUsage.new(price: params[:price])
     daily_usage.save
