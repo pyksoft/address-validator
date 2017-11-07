@@ -14,7 +14,8 @@ class HomeController < ShopifyApp::AuthenticatedController
   def validation_history
     shop = ShopifyAPI::Shop.current
     domain = shop.domain
-    @histories = History.find_by_shop(domain)
+    #@histories = History.find_by_shop(domain)
+    @histories = History.where(shop: domain)
   end
 
   def create_recurring_application_charge
